@@ -1,13 +1,13 @@
 # Software Testing Project
 ------------------------------------------
-By - Abhinav Chawla(IMT2013002)
-   - Udbhav Vats(IMT2013055)
+By - Abhinav Chawla (IMT2013002)
+   - Udbhav Vats (IMT2013055)
 ------------------------------------------
-# AIM - MUTATION SOURCE CODE
+# Aim - Mutation Source Code
 
 A project based on mutation operators applied at the level of a statement within a method or a function. The mutated program needs to be strongly killed by the designed test cases. At least three different mutation operators should be used.
 ------------------------------------------
-# THEORY-
+# Theory-
 
 Mutation Testing - Mutation testing (or Mutation analysis or Program mutation) evaluates the quality of software tests. It is a type of White Box Testing which is mainly used for Unit Testing. Mutation testing involves modifying a program’s source code or byte code in small ways. Following are the steps to execute mutation testing:
 
@@ -21,31 +21,33 @@ Step 4: If the original program and mutant programs generate different output, t
 
 Step 5: If the original program and mutant program generate the same output, Mutant is kept alive. In such cases, more effective test cases need to be created that kill all mutants.
 
-# MUTATION SCORE = (Killed Mutants / Total number of Mutants) * 100
+# Mutation Score = (Killed Mutants / Total number of Mutants) * 100
 
 ------------------------------------------
-# LANGUAGE USED - Python 3.5.1
+# Language used -
+
+Python 3.5.1
 ------------------------------------------
-# TOOLS-
+# Tools-
 
 MutPy - MutPy is a mutation testing tool for Python 3.x source code. MutPy supports standard unittest module, generates YAML reports and has colorful output. It’s apply mutation on AST level. You could boost your mutation testing process with high order mutations (HOM) and code coverage analysis.
 -------------------------------------------
-# WHAT IS OUR PROJECT ABOUT
+# What is our project about
 
 We have used a code which contains a structure of tree and contains various functions called on tree, as specified in the documentation. Also, we are using the source code which compared various sorting algorithms, specified in documentation. We have written multiple test cases for all the functions in the tests.py file while the source code is the source.py file.
 -------------------------------------------
-# CONTRIBUTION-
+# Contribution-
 
 Udbhav Vats - Source Code and Test cases for Sorting Algorithms. Documentation of the source code.
 Abhinav Chawla - Source Code and Test cases for  Tree based algorithms. Written the README.md and Documentation of source code partial.
 -------------------------------------------
-# HOW TO RUN -
+# How to run -
 
 1. First install mutpy using the follwoing command in terminal: $pip3 install mutpy
 2. Then type the following command in terminal: $mut.py --target source --unit-test tests -m
     where source.py is the source file name while tests.py is the file containing the various test cases
 --------------------------------------------
-# RESULTS-
+# Results-
 
 Mutation score [18.87361 s]: 91.5%
    - all: 282
@@ -55,7 +57,7 @@ Mutation score [18.87361 s]: 91.5%
    - timeout: 0 (0.0%)
 
 ------------------------------------------
-# MUTATION OPERATORS IN MUTPY
+# Mutation Operators in mutpy
 
 AOD - arithmetic operator deletion
 AOR - arithmetic operator replacement
