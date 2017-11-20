@@ -1,0 +1,4440 @@
+[*] Start mutation process:
+   - targets: source
+   - tests: tests
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[*] 36 tests passed:
+   - tests [0.00482 s]
+[*] Start mutants generation and execution:
+   - [#   1] AOD source:3  : 
+--------------------------------------------------------------------------------
+   1: import collections
+   2: INT_MAX = 4294967296
+~  3: INT_MIN = 4294967296
+   4: 
+   5: 
+   6: 
+   7: 
+   8: 
+--------------------------------------------------------------------------------
+16
+[0.01295 s] killed by test_isbst (tests.CalculatorTest)
+   - [#   2] AOD source:592: 
+--------------------------------------------------------------------------------
+ 588: def is_balanced(root):
+ 589:     
+ 590:     
+ 591:     
+~592:     return 1 != get_depth(root)
+ 593: 
+ 594: def get_depth(root):
+ 595:     
+ 596:     
+ 597:     
+--------------------------------------------------------------------------------
+16
+[0.00882 s] killed by test_isbalanced (tests.CalculatorTest)
+   - [#   3] AOD source:603: 
+--------------------------------------------------------------------------------
+ 599:         return 0
+ 600:     left = get_depth(root.left)
+ 601:     right = get_depth(root.right)
+ 602:     if abs(left - right) > 1:
+~603:         return 1
+ 604:     return 1 + max(left, right)
+ 605: 
+ 606: 
+ 607: 
+ 608: def is_balanced_2(root):
+--------------------------------------------------------------------------------
+16
+[0.01971 s] killed by test_isbalanced (tests.CalculatorTest)
+   - [#   4] AOD source:790: 
+--------------------------------------------------------------------------------
+ 786:             if node.right:
+ 787:                 new_level.append(node.right)
+ 788:         level = new_level
+ 789:         res.append(current[::flag])
+~790:         flag *= 1
+ 791:     return res
+ 792: 
+ 793: 
+ 794: 
+ 795: 
+--------------------------------------------------------------------------------
+[0.01973 s] killed by test_zigzagorder (tests.CalculatorTest)
+   - [#   5] AOD source:879: 
+--------------------------------------------------------------------------------
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+ 878:             dp[i] += dp[i - j] * dp[j - 1]
+~879:     return dp[1]
+ 880: 
+ 881: def successor(root, node):
+ 882:     succ = None
+ 883:     while root:
+ 884:         if node.val < root.val:
+--------------------------------------------------------------------------------
+16
+1
+[0.01057 s] killed by test_numtrees (tests.CalculatorTest)
+   - [#   6] AOR source:3  : 
+--------------------------------------------------------------------------------
+   1: import collections
+   2: INT_MAX = 4294967296
+~  3: INT_MIN = (+4294967296)
+   4: 
+   5: 
+   6: 
+   7: 
+   8: 
+--------------------------------------------------------------------------------
+16
+[0.00629 s] killed by test_isbst (tests.CalculatorTest)
+   - [#   7] AOR source:323: 
+--------------------------------------------------------------------------------
+ 319:     if ((not root.left) and (not root.right) and root.val == sum):
+ 320:         ls.append(root.val)
+ 321:         res.append(ls)
+ 322:     if root.left:
+~323:         DFS(root.left, sum + root.val, ls + [root.val], res)
+ 324:     if root.right:
+ 325:         DFS(root.right, sum - root.val, ls + [root.val], res)
+ 326: 
+ 327: 
+ 328: 
+--------------------------------------------------------------------------------
+[0.01228 s] killed by test_pathSum (tests.CalculatorTest)
+   - [#   8] AOR source:323: 
+--------------------------------------------------------------------------------
+ 319:     if ((not root.left) and (not root.right) and root.val == sum):
+ 320:         ls.append(root.val)
+ 321:         res.append(ls)
+ 322:     if root.left:
+~323:         DFS(root.left, sum - root.val, ls - [root.val], res)
+ 324:     if root.right:
+ 325:         DFS(root.right, sum - root.val, ls + [root.val], res)
+ 326: 
+ 327: 
+ 328: 
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.00829 s] incompetent
+   - [#   9] AOR source:325: 
+--------------------------------------------------------------------------------
+ 321:         res.append(ls)
+ 322:     if root.left:
+ 323:         DFS(root.left, sum - root.val, ls + [root.val], res)
+ 324:     if root.right:
+~325:         DFS(root.right, sum + root.val, ls + [root.val], res)
+ 326: 
+ 327: 
+ 328: 
+ 329: def path_sum2(root, s):
+ 330:     if (not root):
+--------------------------------------------------------------------------------
+16
+42
+[0.03223 s] killed by test_pathSum (tests.CalculatorTest)
+   - [#  10] AOR source:325: 
+--------------------------------------------------------------------------------
+ 321:         res.append(ls)
+ 322:     if root.left:
+ 323:         DFS(root.left, sum - root.val, ls + [root.val], res)
+ 324:     if root.right:
+~325:         DFS(root.right, sum - root.val, ls - [root.val], res)
+ 326: 
+ 327: 
+ 328: 
+ 329: def path_sum2(root, s):
+ 330:     if (not root):
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.02260 s] incompetent
+   - [#  11] AOR source:339: 
+--------------------------------------------------------------------------------
+ 335:         (node, ls) = stack.pop()
+ 336:         if ((not node.left) and (not node.right) and sum(ls) == s):
+ 337:             res.append(ls)
+ 338:         if node.left:
+~339:             stack.append((node.left, ls - [node.left.val]))
+ 340:         if node.right:
+ 341:             stack.append((node.right, ls + [node.right.val]))
+ 342:     return res
+ 343: 
+ 344: 
+--------------------------------------------------------------------------------
+[0.01988 s] incompetent
+   - [#  12] AOR source:341: 
+--------------------------------------------------------------------------------
+ 337:             res.append(ls)
+ 338:         if node.left:
+ 339:             stack.append((node.left, ls + [node.left.val]))
+ 340:         if node.right:
+~341:             stack.append((node.right, ls - [node.right.val]))
+ 342:     return res
+ 343: 
+ 344: 
+ 345: 
+ 346: def path_sum3(root, sum):
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.02404 s] incompetent
+   - [#  13] AOR source:356: 
+--------------------------------------------------------------------------------
+ 352:         (node, val, ls) = queue.pop(0)
+ 353:         if ((not node.left) and (not node.right) and val == sum):
+ 354:             res.append(ls)
+ 355:         if node.left:
+~356:             queue.append((node.left, val - node.left.val, ls + [node.left.val]))
+ 357:         if node.right:
+ 358:             queue.append((node.right, val + node.right.val, ls + [node.right.val]))
+ 359:     return res
+ 360: 
+ 361: 
+--------------------------------------------------------------------------------
+[0.02443 s] killed by test_pathSum3 (tests.CalculatorTest)
+   - [#  14] AOR source:356: 
+--------------------------------------------------------------------------------
+ 352:         (node, val, ls) = queue.pop(0)
+ 353:         if ((not node.left) and (not node.right) and val == sum):
+ 354:             res.append(ls)
+ 355:         if node.left:
+~356:             queue.append((node.left, val + node.left.val, ls - [node.left.val]))
+ 357:         if node.right:
+ 358:             queue.append((node.right, val + node.right.val, ls + [node.right.val]))
+ 359:     return res
+ 360: 
+ 361: 
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.03222 s] incompetent
+   - [#  15] AOR source:358: 
+--------------------------------------------------------------------------------
+ 354:             res.append(ls)
+ 355:         if node.left:
+ 356:             queue.append((node.left, val + node.left.val, ls + [node.left.val]))
+ 357:         if node.right:
+~358:             queue.append((node.right, val - node.right.val, ls + [node.right.val]))
+ 359:     return res
+ 360: 
+ 361: 
+ 362: 
+ 363: 
+--------------------------------------------------------------------------------
+16
+42
+[0.01593 s] killed by test_pathSum3 (tests.CalculatorTest)
+   - [#  16] AOR source:358: 
+--------------------------------------------------------------------------------
+ 354:             res.append(ls)
+ 355:         if node.left:
+ 356:             queue.append((node.left, val + node.left.val, ls + [node.left.val]))
+ 357:         if node.right:
+~358:             queue.append((node.right, val + node.right.val, ls - [node.right.val]))
+ 359:     return res
+ 360: 
+ 361: 
+ 362: 
+ 363: 
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.02485 s] incompetent
+   - [#  17] AOR source:400: 
+--------------------------------------------------------------------------------
+ 396:         if ((not node.left) and (not node.right)):
+ 397:             if val == sum:
+ 398:                 return True
+ 399:         if node.left:
+~400:             stack.append((node.left, val - node.left.val))
+ 401:         if node.right:
+ 402:             stack.append((node.right, val + node.right.val))
+ 403:     return False
+ 404: 
+ 405: 
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+[0.02197 s] killed by test_pathSum6 (tests.CalculatorTest)
+   - [#  18] AOR source:402: 
+--------------------------------------------------------------------------------
+ 398:                 return True
+ 399:         if node.left:
+ 400:             stack.append((node.left, val + node.left.val))
+ 401:         if node.right:
+~402:             stack.append((node.right, val - node.right.val))
+ 403:     return False
+ 404: 
+ 405: 
+ 406: 
+ 407: def has_path_sum3(root, sum):
+--------------------------------------------------------------------------------
+[0.02676 s] killed by test_pathSum6 (tests.CalculatorTest)
+   - [#  19] AOR source:410: 
+--------------------------------------------------------------------------------
+ 406: 
+ 407: def has_path_sum3(root, sum):
+ 408:     if (not root):
+ 409:         return False
+~410:     queue = [(root, sum + root.val)]
+ 411:     while queue:
+ 412:         (node, val) = queue.pop(0)
+ 413:         if ((not node.left) and (not node.right)):
+ 414:             if val == 0:
+ 415:                 return True
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[0.02157 s] killed by test_pathSum8 (tests.CalculatorTest)
+   - [#  20] AOR source:417: 
+--------------------------------------------------------------------------------
+ 413:         if ((not node.left) and (not node.right)):
+ 414:             if val == 0:
+ 415:                 return True
+ 416:         if node.left:
+~417:             queue.append((node.left, val + node.left.val))
+ 418:         if node.right:
+ 419:             queue.append((node.right, val - node.right.val))
+ 420:     return False
+ 421: 
+ 422: 
+--------------------------------------------------------------------------------
+[0.03148 s] killed by test_pathSum8 (tests.CalculatorTest)
+   - [#  21] AOR source:419: 
+--------------------------------------------------------------------------------
+ 415:                 return True
+ 416:         if node.left:
+ 417:             queue.append((node.left, val - node.left.val))
+ 418:         if node.right:
+~419:             queue.append((node.right, val + node.right.val))
+ 420:     return False
+ 421: 
+ 422: 
+ 423: 
+ 424: 
+--------------------------------------------------------------------------------
+[0.02933 s] killed by test_pathSum8 (tests.CalculatorTest)
+   - [#  22] AOR source:592: 
+--------------------------------------------------------------------------------
+ 588: def is_balanced(root):
+ 589:     
+ 590:     
+ 591:     
+~592:     return (+1) != get_depth(root)
+ 593: 
+ 594: def get_depth(root):
+ 595:     
+ 596:     
+ 597:     
+--------------------------------------------------------------------------------
+16
+[0.00596 s] killed by test_isbalanced (tests.CalculatorTest)
+   - [#  23] AOR source:602: 
+--------------------------------------------------------------------------------
+ 598:     if (not root):
+ 599:         return 0
+ 600:     left = get_depth(root.left)
+ 601:     right = get_depth(root.right)
+~602:     if abs(left + right) > 1:
+ 603:         return (-1)
+ 604:     return 1 + max(left, right)
+ 605: 
+ 606: 
+ 607: 
+--------------------------------------------------------------------------------
+16
+[0.01767 s] killed by test_isbalanced2 (tests.CalculatorTest)
+   - [#  24] AOR source:603: 
+--------------------------------------------------------------------------------
+ 599:         return 0
+ 600:     left = get_depth(root.left)
+ 601:     right = get_depth(root.right)
+ 602:     if abs(left - right) > 1:
+~603:         return (+1)
+ 604:     return 1 + max(left, right)
+ 605: 
+ 606: 
+ 607: 
+ 608: def is_balanced_2(root):
+--------------------------------------------------------------------------------
+[0.01013 s] killed by test_isbalanced (tests.CalculatorTest)
+   - [#  25] AOR source:604: 
+--------------------------------------------------------------------------------
+ 600:     left = get_depth(root.left)
+ 601:     right = get_depth(root.right)
+ 602:     if abs(left - right) > 1:
+ 603:         return (-1)
+~604:     return 1 - max(left, right)
+ 605: 
+ 606: 
+ 607: 
+ 608: def is_balanced_2(root):
+ 609:     
+--------------------------------------------------------------------------------
+16
+[0.02085 s] killed by test_isbalanced (tests.CalculatorTest)
+   - [#  26] AOR source:618: 
+--------------------------------------------------------------------------------
+ 614:     if ((not left) and (not right)):
+ 615:         return True
+ 616:     if ((not left) or (not right)):
+ 617:         return False
+~618:     return (abs(left + right) <= 1 and is_balanced_2(root.left) and is_balanced_2(root.right))
+ 619: 
+ 620: def reverse(root):
+ 621:     if (not root):
+ 622:         return
+ 623:     (root.left, root.right) = (root.right, root.left)
+--------------------------------------------------------------------------------
+[0.02208 s] killed by test_isbalanced4 (tests.CalculatorTest)
+   - [#  27] AOR source:653: 
+--------------------------------------------------------------------------------
+ 649:         return
+ 650:     if (is_left and depth > res.depth):
+ 651:         res.depth = depth
+ 652:         res.Node = root
+~653:     find_deepest_left(root.left, True, depth - 1, res)
+ 654:     find_deepest_left(root.right, False, depth + 1, res)
+ 655: 
+ 656: def bintree2list(root):
+ 657:     
+ 658:     
+--------------------------------------------------------------------------------
+16
+[0.03262 s] killed by test_deepestleft (tests.CalculatorTest)
+   - [#  28] AOR source:654: 
+--------------------------------------------------------------------------------
+ 650:     if (is_left and depth > res.depth):
+ 651:         res.depth = depth
+ 652:         res.Node = root
+ 653:     find_deepest_left(root.left, True, depth + 1, res)
+~654:     find_deepest_left(root.right, False, depth - 1, res)
+ 655: 
+ 656: def bintree2list(root):
+ 657:     
+ 658:     
+ 659:     
+--------------------------------------------------------------------------------
+[0.02727 s] killed by test_deepestleft2 (tests.CalculatorTest)
+   - [#  29] AOR source:790: 
+--------------------------------------------------------------------------------
+ 786:             if node.right:
+ 787:                 new_level.append(node.right)
+ 788:         level = new_level
+ 789:         res.append(current[::flag])
+~790:         flag *= (+1)
+ 791:     return res
+ 792: 
+ 793: 
+ 794: 
+ 795: 
+--------------------------------------------------------------------------------
+[0.02747 s] killed by test_zigzagorder (tests.CalculatorTest)
+   - [#  30] AOR source:799: 
+--------------------------------------------------------------------------------
+ 795: 
+ 796: def array2bst(nums):
+ 797:     if (not nums):
+ 798:         return None
+~799:     mid = len(nums) / 2
+ 800:     node = TreeNode(nums[mid])
+ 801:     node.left = array2bst(nums[:mid])
+ 802:     node.right = array2bst(nums[mid + 1:])
+ 803:     return node
+ 804: 
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.00645 s] incompetent
+   - [#  31] AOR source:799: 
+--------------------------------------------------------------------------------
+ 795: 
+ 796: def array2bst(nums):
+ 797:     if (not nums):
+ 798:         return None
+~799:     mid = len(nums) * 2
+ 800:     node = TreeNode(nums[mid])
+ 801:     node.left = array2bst(nums[:mid])
+ 802:     node.right = array2bst(nums[mid + 1:])
+ 803:     return node
+ 804: 
+--------------------------------------------------------------------------------
+[0.00580 s] killed by test_array2bst (tests.CalculatorTest)
+   - [#  32] AOR source:802: 
+--------------------------------------------------------------------------------
+ 798:         return None
+ 799:     mid = len(nums) // 2
+ 800:     node = TreeNode(nums[mid])
+ 801:     node.left = array2bst(nums[:mid])
+~802:     node.right = array2bst(nums[mid - 1:])
+ 803:     return node
+ 804: 
+ 805: 
+ 806: 
+ 807: 
+--------------------------------------------------------------------------------
+[0.02421 s] killed by test_array2bst (tests.CalculatorTest)
+   - [#  33] AOR source:830: 
+--------------------------------------------------------------------------------
+ 826:     kid = root.left if target < a else root.right
+ 827:     if (not kid):
+ 828:         return a
+ 829:     b = closest_value(kid, target)
+~830:     return min((a, b), key=lambda x: abs(target + x))
+ 831: 
+ 832: 
+ 833: 
+ 834: 
+ 835: 
+--------------------------------------------------------------------------------
+8
+[0.00507 s] killed by test_closestvalue (tests.CalculatorTest)
+   - [#  34] AOR source:865: 
+--------------------------------------------------------------------------------
+ 861:     
+ 862:     if (node.val < mini or node.val > maxi):
+ 863:         return False
+ 864:     
+~865:     return (isBSTUtil(node.left, mini, node.val + 1) and 
+ 866:     isBSTUtil(node.right, node.val + 1, maxi))
+ 867: 
+ 868: def num_trees(n):
+ 869:     
+ 870:     
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.00892 s] survived
+   - [#  35] AOR source:866: 
+--------------------------------------------------------------------------------
+ 862:     if (node.val < mini or node.val > maxi):
+ 863:         return False
+ 864:     
+ 865:     return (isBSTUtil(node.left, mini, node.val - 1) and 
+~866:     isBSTUtil(node.right, node.val - 1, maxi))
+ 867: 
+ 868: def num_trees(n):
+ 869:     
+ 870:     
+ 871:     
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.02190 s] survived
+   - [#  36] AOR source:873: 
+--------------------------------------------------------------------------------
+ 869:     
+ 870:     
+ 871:     
+ 872:     
+~873:     dp = [0] / n + 1
+ 874:     dp[0] = 1
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+ 878:             dp[i] += dp[i - j] * dp[j - 1]
+--------------------------------------------------------------------------------
+16
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.01273 s] incompetent
+   - [#  37] AOR source:873: 
+--------------------------------------------------------------------------------
+ 869:     
+ 870:     
+ 871:     
+ 872:     
+~873:     dp = [0] // n + 1
+ 874:     dp[0] = 1
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+ 878:             dp[i] += dp[i - j] * dp[j - 1]
+--------------------------------------------------------------------------------
+16
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.00971 s] incompetent
+   - [#  38] AOR source:873: 
+--------------------------------------------------------------------------------
+ 869:     
+ 870:     
+ 871:     
+ 872:     
+~873:     dp = [0] ** n + 1
+ 874:     dp[0] = 1
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+ 878:             dp[i] += dp[i - j] * dp[j - 1]
+--------------------------------------------------------------------------------
+16
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.00704 s] incompetent
+   - [#  39] AOR source:873: 
+--------------------------------------------------------------------------------
+ 869:     
+ 870:     
+ 871:     
+ 872:     
+~873:     dp = [0] * n - 1
+ 874:     dp[0] = 1
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+ 878:             dp[i] += dp[i - j] * dp[j - 1]
+--------------------------------------------------------------------------------
+16
+[0.00800 s] killed by test_numtrees (tests.CalculatorTest)
+   - [#  40] AOR source:876: 
+--------------------------------------------------------------------------------
+ 872:     
+ 873:     dp = [0] * n + 1
+ 874:     dp[0] = 1
+ 875:     dp[1] = 1
+~876:     for i in range(2, n - 1):
+ 877:         for j in range(i + 1):
+ 878:             dp[i] += dp[i - j] * dp[j - 1]
+ 879:     return dp[(-1)]
+ 880: 
+ 881: def successor(root, node):
+--------------------------------------------------------------------------------
+[0.00572 s] killed by test_numtrees (tests.CalculatorTest)
+   - [#  41] AOR source:877: 
+--------------------------------------------------------------------------------
+ 873:     dp = [0] * n + 1
+ 874:     dp[0] = 1
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+~877:         for j in range(i - 1):
+ 878:             dp[i] += dp[i - j] * dp[j - 1]
+ 879:     return dp[(-1)]
+ 880: 
+ 881: def successor(root, node):
+ 882:     succ = None
+--------------------------------------------------------------------------------
+16
+0
+[0.01184 s] killed by test_numtrees (tests.CalculatorTest)
+   - [#  42] AOR source:878: 
+--------------------------------------------------------------------------------
+ 874:     dp[0] = 1
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+~878:             dp[i] += dp[i + j] * dp[j - 1]
+ 879:     return dp[(-1)]
+ 880: 
+ 881: def successor(root, node):
+ 882:     succ = None
+ 883:     while root:
+--------------------------------------------------------------------------------
+16
+[0.02188 s] killed by test_numtrees (tests.CalculatorTest)
+   - [#  43] AOR source:878: 
+--------------------------------------------------------------------------------
+ 874:     dp[0] = 1
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+~878:             dp[i] += dp[i - j] / dp[j - 1]
+ 879:     return dp[(-1)]
+ 880: 
+ 881: def successor(root, node):
+ 882:     succ = None
+ 883:     while root:
+--------------------------------------------------------------------------------
+[0.01342 s] killed by test_numtrees (tests.CalculatorTest)
+   - [#  44] AOR source:878: 
+--------------------------------------------------------------------------------
+ 874:     dp[0] = 1
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+~878:             dp[i] += dp[i - j] // dp[j - 1]
+ 879:     return dp[(-1)]
+ 880: 
+ 881: def successor(root, node):
+ 882:     succ = None
+ 883:     while root:
+--------------------------------------------------------------------------------
+16
+[0.01367 s] killed by test_numtrees (tests.CalculatorTest)
+   - [#  45] AOR source:878: 
+--------------------------------------------------------------------------------
+ 874:     dp[0] = 1
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+~878:             dp[i] += dp[i - j] ** dp[j - 1]
+ 879:     return dp[(-1)]
+ 880: 
+ 881: def successor(root, node):
+ 882:     succ = None
+ 883:     while root:
+--------------------------------------------------------------------------------
+[0.01927 s] killed by test_numtrees (tests.CalculatorTest)
+   - [#  46] AOR source:878: 
+--------------------------------------------------------------------------------
+ 874:     dp[0] = 1
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+~878:             dp[i] += dp[i - j] * dp[j + 1]
+ 879:     return dp[(-1)]
+ 880: 
+ 881: def successor(root, node):
+ 882:     succ = None
+ 883:     while root:
+--------------------------------------------------------------------------------
+16
+[0.01568 s] killed by test_numtrees (tests.CalculatorTest)
+   - [#  47] AOR source:879: 
+--------------------------------------------------------------------------------
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+ 878:             dp[i] += dp[i - j] * dp[j - 1]
+~879:     return dp[(+1)]
+ 880: 
+ 881: def successor(root, node):
+ 882:     succ = None
+ 883:     while root:
+ 884:         if node.val < root.val:
+--------------------------------------------------------------------------------
+16
+1
+[0.00880 s] killed by test_numtrees (tests.CalculatorTest)
+   - [#  48] ASR source:385: 
+--------------------------------------------------------------------------------
+ 381:     if (not root):
+ 382:         return False
+ 383:     if ((not root.left) and (not root.right) and root.val == sum):
+ 384:         return True
+~385:     sum += root.val
+ 386:     return (has_path_sum(root.left, sum) or has_path_sum(root.right, sum))
+ 387: 
+ 388: 
+ 389: 
+ 390: def has_path_sum2(root, sum):
+--------------------------------------------------------------------------------
+16
+42
+False
+[0.00768 s] killed by test_pathSum4 (tests.CalculatorTest)
+   - [#  49] ASR source:435: 
+--------------------------------------------------------------------------------
+ 431:         return 0
+ 432:     height = 0
+ 433:     queue = [root]
+ 434:     while queue:
+~435:         height -= 1
+ 436:         level = []
+ 437:         while queue:
+ 438:             node = queue.pop(0)
+ 439:             if node.left:
+ 440:                 level.append(node.left)
+--------------------------------------------------------------------------------
+16
+[0.00713 s] killed by test_maxheight (tests.CalculatorTest)
+   - [#  50] ASR source:790: 
+--------------------------------------------------------------------------------
+ 786:             if node.right:
+ 787:                 new_level.append(node.right)
+ 788:         level = new_level
+ 789:         res.append(current[::flag])
+~790:         flag /= (-1)
+ 791:     return res
+ 792: 
+ 793: 
+ 794: 
+ 795: 
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[0.01165 s] incompetent
+   - [#  51] ASR source:790: 
+--------------------------------------------------------------------------------
+ 786:             if node.right:
+ 787:                 new_level.append(node.right)
+ 788:         level = new_level
+ 789:         res.append(current[::flag])
+~790:         flag //= (-1)
+ 791:     return res
+ 792: 
+ 793: 
+ 794: 
+ 795: 
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.01214 s] survived
+   - [#  52] ASR source:790: 
+--------------------------------------------------------------------------------
+ 786:             if node.right:
+ 787:                 new_level.append(node.right)
+ 788:         level = new_level
+ 789:         res.append(current[::flag])
+~790:         flag **= (-1)
+ 791:     return res
+ 792: 
+ 793: 
+ 794: 
+ 795: 
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[0.01637 s] incompetent
+   - [#  53] ASR source:878: 
+--------------------------------------------------------------------------------
+ 874:     dp[0] = 1
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+~878:             dp[i] -= dp[i - j] * dp[j - 1]
+ 879:     return dp[(-1)]
+ 880: 
+ 881: def successor(root, node):
+ 882:     succ = None
+ 883:     while root:
+--------------------------------------------------------------------------------
+16
+-6
+[0.00548 s] killed by test_numtrees (tests.CalculatorTest)
+   - [#  54] BCR source:520: 
+--------------------------------------------------------------------------------
+ 516:     stack = [[root.left, root.right]]
+ 517:     while stack:
+ 518:         (left, right) = stack.pop()
+ 519:         if ((not left) and (not right)):
+~520:             break
+ 521:         if ((not left) or (not right)):
+ 522:             return False
+ 523:         if left.val == right.val:
+ 524:             stack.append([left.left, right.right])
+ 525:             stack.append([left.right, right.right])
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.01756 s] survived
+   - [#  55] BCR source:559: 
+--------------------------------------------------------------------------------
+ 555:     while queue:
+ 556:         node = queue.popleft()
+ 557:         if node.val == small.val:
+ 558:             flag = comp(node, small)
+~559:             continue
+ 560:         else:
+ 561:             queue.append(node.left)
+ 562:             queue.append(node.right)
+ 563:     return flag
+ 564: 
+--------------------------------------------------------------------------------
+16
+[0.01523 s] killed by test_issubtree (tests.CalculatorTest)
+   - [#  56] COD source:286: 
+--------------------------------------------------------------------------------
+ 282: 
+ 283: 
+ 284: 
+ 285: def isSameTree(p, q):
+~286:     if (p and (not q)):
+ 287:         return True
+ 288:     if (p and q and p.val == q.val):
+ 289:         return (isSameTree(p.left, q.left) and isSameTree(p.right, q.right))
+ 290:     return False
+ 291: 
+--------------------------------------------------------------------------------
+[0.00715 s] killed by test_isSameTree (tests.CalculatorTest)
+   - [#  57] COD source:286: 
+--------------------------------------------------------------------------------
+ 282: 
+ 283: 
+ 284: 
+ 285: def isSameTree(p, q):
+~286:     if ((not p) and q):
+ 287:         return True
+ 288:     if (p and q and p.val == q.val):
+ 289:         return (isSameTree(p.left, q.left) and isSameTree(p.right, q.right))
+ 290:     return False
+ 291: 
+--------------------------------------------------------------------------------
+16
+[0.00501 s] killed by test_isSameTree (tests.CalculatorTest)
+   - [#  58] COD source:312: 
+--------------------------------------------------------------------------------
+ 308: 
+ 309: 
+ 310: 
+ 311: def path_sum(root, sum):
+~312:     if root:
+ 313:         return []
+ 314:     res = []
+ 315:     DFS(root, sum, [], res)
+ 316:     return res
+ 317: 
+--------------------------------------------------------------------------------
+16
+42
+[0.00784 s] killed by test_pathSum (tests.CalculatorTest)
+   - [#  59] COD source:319: 
+--------------------------------------------------------------------------------
+ 315:     DFS(root, sum, [], res)
+ 316:     return res
+ 317: 
+ 318: def DFS(root, sum, ls, res):
+~319:     if (root.left and (not root.right) and root.val == sum):
+ 320:         ls.append(root.val)
+ 321:         res.append(ls)
+ 322:     if root.left:
+ 323:         DFS(root.left, sum - root.val, ls + [root.val], res)
+ 324:     if root.right:
+--------------------------------------------------------------------------------
+16
+42
+[0.00805 s] killed by test_pathSum (tests.CalculatorTest)
+   - [#  60] COD source:319: 
+--------------------------------------------------------------------------------
+ 315:     DFS(root, sum, [], res)
+ 316:     return res
+ 317: 
+ 318: def DFS(root, sum, ls, res):
+~319:     if ((not root.left) and root.right and root.val == sum):
+ 320:         ls.append(root.val)
+ 321:         res.append(ls)
+ 322:     if root.left:
+ 323:         DFS(root.left, sum - root.val, ls + [root.val], res)
+ 324:     if root.right:
+--------------------------------------------------------------------------------
+16
+42
+[0.01039 s] killed by test_pathSum (tests.CalculatorTest)
+   - [#  61] COD source:330: 
+--------------------------------------------------------------------------------
+ 326: 
+ 327: 
+ 328: 
+ 329: def path_sum2(root, s):
+~330:     if root:
+ 331:         return []
+ 332:     res = []
+ 333:     stack = [(root, [root.val])]
+ 334:     while stack:
+ 335:         (node, ls) = stack.pop()
+--------------------------------------------------------------------------------
+16
+42
+[0.01144 s] killed by test_pathSum2 (tests.CalculatorTest)
+   - [#  62] COD source:336: 
+--------------------------------------------------------------------------------
+ 332:     res = []
+ 333:     stack = [(root, [root.val])]
+ 334:     while stack:
+ 335:         (node, ls) = stack.pop()
+~336:         if (node.left and (not node.right) and sum(ls) == s):
+ 337:             res.append(ls)
+ 338:         if node.left:
+ 339:             stack.append((node.left, ls + [node.left.val]))
+ 340:         if node.right:
+ 341:             stack.append((node.right, ls + [node.right.val]))
+--------------------------------------------------------------------------------
+16
+42
+[0.01002 s] killed by test_pathSum2 (tests.CalculatorTest)
+   - [#  63] COD source:336: 
+--------------------------------------------------------------------------------
+ 332:     res = []
+ 333:     stack = [(root, [root.val])]
+ 334:     while stack:
+ 335:         (node, ls) = stack.pop()
+~336:         if ((not node.left) and node.right and sum(ls) == s):
+ 337:             res.append(ls)
+ 338:         if node.left:
+ 339:             stack.append((node.left, ls + [node.left.val]))
+ 340:         if node.right:
+ 341:             stack.append((node.right, ls + [node.right.val]))
+--------------------------------------------------------------------------------
+16
+42
+[0.01048 s] killed by test_pathSum2 (tests.CalculatorTest)
+   - [#  64] COD source:347: 
+--------------------------------------------------------------------------------
+ 343: 
+ 344: 
+ 345: 
+ 346: def path_sum3(root, sum):
+~347:     if root:
+ 348:         return []
+ 349:     res = []
+ 350:     queue = [(root, root.val, [root.val])]
+ 351:     while queue:
+ 352:         (node, val, ls) = queue.pop(0)
+--------------------------------------------------------------------------------
+16
+42
+[0.01113 s] killed by test_pathSum3 (tests.CalculatorTest)
+   - [#  65] COD source:353: 
+--------------------------------------------------------------------------------
+ 349:     res = []
+ 350:     queue = [(root, root.val, [root.val])]
+ 351:     while queue:
+ 352:         (node, val, ls) = queue.pop(0)
+~353:         if (node.left and (not node.right) and val == sum):
+ 354:             res.append(ls)
+ 355:         if node.left:
+ 356:             queue.append((node.left, val + node.left.val, ls + [node.left.val]))
+ 357:         if node.right:
+ 358:             queue.append((node.right, val + node.right.val, ls + [node.right.val]))
+--------------------------------------------------------------------------------
+16
+42
+[0.01360 s] killed by test_pathSum3 (tests.CalculatorTest)
+   - [#  66] COD source:353: 
+--------------------------------------------------------------------------------
+ 349:     res = []
+ 350:     queue = [(root, root.val, [root.val])]
+ 351:     while queue:
+ 352:         (node, val, ls) = queue.pop(0)
+~353:         if ((not node.left) and node.right and val == sum):
+ 354:             res.append(ls)
+ 355:         if node.left:
+ 356:             queue.append((node.left, val + node.left.val, ls + [node.left.val]))
+ 357:         if node.right:
+ 358:             queue.append((node.right, val + node.right.val, ls + [node.right.val]))
+--------------------------------------------------------------------------------
+16
+42
+[0.01886 s] killed by test_pathSum3 (tests.CalculatorTest)
+   - [#  67] COD source:381: 
+--------------------------------------------------------------------------------
+ 377:     
+ 378:     
+ 379:     
+ 380:     
+~381:     if root:
+ 382:         return False
+ 383:     if ((not root.left) and (not root.right) and root.val == sum):
+ 384:         return True
+ 385:     sum -= root.val
+ 386:     return (has_path_sum(root.left, sum) or has_path_sum(root.right, sum))
+--------------------------------------------------------------------------------
+16
+42
+False
+[0.00960 s] killed by test_pathSum4 (tests.CalculatorTest)
+   - [#  68] COD source:383: 
+--------------------------------------------------------------------------------
+ 379:     
+ 380:     
+ 381:     if (not root):
+ 382:         return False
+~383:     if (root.left and (not root.right) and root.val == sum):
+ 384:         return True
+ 385:     sum -= root.val
+ 386:     return (has_path_sum(root.left, sum) or has_path_sum(root.right, sum))
+ 387: 
+ 388: 
+--------------------------------------------------------------------------------
+16
+42
+False
+[0.01378 s] killed by test_pathSum4 (tests.CalculatorTest)
+   - [#  69] COD source:383: 
+--------------------------------------------------------------------------------
+ 379:     
+ 380:     
+ 381:     if (not root):
+ 382:         return False
+~383:     if ((not root.left) and root.right and root.val == sum):
+ 384:         return True
+ 385:     sum -= root.val
+ 386:     return (has_path_sum(root.left, sum) or has_path_sum(root.right, sum))
+ 387: 
+ 388: 
+--------------------------------------------------------------------------------
+16
+42
+False
+[0.01796 s] killed by test_pathSum4 (tests.CalculatorTest)
+   - [#  70] COD source:391: 
+--------------------------------------------------------------------------------
+ 387: 
+ 388: 
+ 389: 
+ 390: def has_path_sum2(root, sum):
+~391:     if root:
+ 392:         return False
+ 393:     stack = [(root, root.val)]
+ 394:     while stack:
+ 395:         (node, val) = stack.pop()
+ 396:         if ((not node.left) and (not node.right)):
+--------------------------------------------------------------------------------
+[0.01010 s] killed by test_pathSum6 (tests.CalculatorTest)
+   - [#  71] COD source:396: 
+--------------------------------------------------------------------------------
+ 392:         return False
+ 393:     stack = [(root, root.val)]
+ 394:     while stack:
+ 395:         (node, val) = stack.pop()
+~396:         if (node.left and (not node.right)):
+ 397:             if val == sum:
+ 398:                 return True
+ 399:         if node.left:
+ 400:             stack.append((node.left, val + node.left.val))
+ 401:         if node.right:
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+[0.00976 s] killed by test_pathSum6 (tests.CalculatorTest)
+   - [#  72] COD source:396: 
+--------------------------------------------------------------------------------
+ 392:         return False
+ 393:     stack = [(root, root.val)]
+ 394:     while stack:
+ 395:         (node, val) = stack.pop()
+~396:         if ((not node.left) and node.right):
+ 397:             if val == sum:
+ 398:                 return True
+ 399:         if node.left:
+ 400:             stack.append((node.left, val + node.left.val))
+ 401:         if node.right:
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+[0.00871 s] killed by test_pathSum6 (tests.CalculatorTest)
+   - [#  73] COD source:408: 
+--------------------------------------------------------------------------------
+ 404: 
+ 405: 
+ 406: 
+ 407: def has_path_sum3(root, sum):
+~408:     if root:
+ 409:         return False
+ 410:     queue = [(root, sum - root.val)]
+ 411:     while queue:
+ 412:         (node, val) = queue.pop(0)
+ 413:         if ((not node.left) and (not node.right)):
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[0.01070 s] killed by test_pathSum8 (tests.CalculatorTest)
+   - [#  74] COD source:413: 
+--------------------------------------------------------------------------------
+ 409:         return False
+ 410:     queue = [(root, sum - root.val)]
+ 411:     while queue:
+ 412:         (node, val) = queue.pop(0)
+~413:         if (node.left and (not node.right)):
+ 414:             if val == 0:
+ 415:                 return True
+ 416:         if node.left:
+ 417:             queue.append((node.left, val - node.left.val))
+ 418:         if node.right:
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[0.01478 s] killed by test_pathSum8 (tests.CalculatorTest)
+   - [#  75] COD source:413: 
+--------------------------------------------------------------------------------
+ 409:         return False
+ 410:     queue = [(root, sum - root.val)]
+ 411:     while queue:
+ 412:         (node, val) = queue.pop(0)
+~413:         if ((not node.left) and node.right):
+ 414:             if val == 0:
+ 415:                 return True
+ 416:         if node.left:
+ 417:             queue.append((node.left, val - node.left.val))
+ 418:         if node.right:
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[0.01538 s] killed by test_pathSum8 (tests.CalculatorTest)
+   - [#  76] COD source:430: 
+--------------------------------------------------------------------------------
+ 426: 
+ 427: 
+ 428: 
+ 429: def max_height(root):
+~430:     if root:
+ 431:         return 0
+ 432:     height = 0
+ 433:     queue = [root]
+ 434:     while queue:
+ 435:         height += 1
+--------------------------------------------------------------------------------
+16
+[0.01855 s] killed by test_isbalanced3 (tests.CalculatorTest)
+   - [#  77] COD source:473: 
+--------------------------------------------------------------------------------
+ 469:     
+ 470:     
+ 471:     
+ 472:     
+~473:     if (root or root is p or root is q):
+ 474:         return root
+ 475:     left = LCA(root.left, p, q)
+ 476:     right = LCA(root.right, p, q)
+ 477:     if (left and right):
+ 478:         return root
+--------------------------------------------------------------------------------
+[0.01798 s] killed by test_LCA (tests.CalculatorTest)
+   - [#  78] COD source:500: 
+--------------------------------------------------------------------------------
+ 496: 
+ 497: 
+ 498: 
+ 499: def is_symmetric(root):
+~500:     if root:
+ 501:         return True
+ 502:     return helper(root.left, root.right)
+ 503: 
+ 504: 
+ 505: def helper(p, q):
+--------------------------------------------------------------------------------
+16
+[0.01086 s] killed by test_issymmetric (tests.CalculatorTest)
+   - [#  79] COD source:506: 
+--------------------------------------------------------------------------------
+ 502:     return helper(root.left, root.right)
+ 503: 
+ 504: 
+ 505: def helper(p, q):
+~506:     if (p and (not q)):
+ 507:         return True
+ 508:     if ((not p) or (not q) or q.val != p.val):
+ 509:         return False
+ 510:     return (helper(p.left, q.right) and helper(p.right, q.left))
+ 511: 
+--------------------------------------------------------------------------------
+16
+[0.01160 s] killed by test_issymmetric2 (tests.CalculatorTest)
+   - [#  80] COD source:506: 
+--------------------------------------------------------------------------------
+ 502:     return helper(root.left, root.right)
+ 503: 
+ 504: 
+ 505: def helper(p, q):
+~506:     if ((not p) and q):
+ 507:         return True
+ 508:     if ((not p) or (not q) or q.val != p.val):
+ 509:         return False
+ 510:     return (helper(p.left, q.right) and helper(p.right, q.left))
+ 511: 
+--------------------------------------------------------------------------------
+16
+[0.00557 s] killed by test_issymmetric2 (tests.CalculatorTest)
+   - [#  81] COD source:508: 
+--------------------------------------------------------------------------------
+ 504: 
+ 505: def helper(p, q):
+ 506:     if ((not p) and (not q)):
+ 507:         return True
+~508:     if (p or (not q) or q.val != p.val):
+ 509:         return False
+ 510:     return (helper(p.left, q.right) and helper(p.right, q.left))
+ 511: 
+ 512: 
+ 513: def is_symmetric_iterative(root):
+--------------------------------------------------------------------------------
+16
+[0.00677 s] killed by test_issymmetric2 (tests.CalculatorTest)
+   - [#  82] COD source:508: 
+--------------------------------------------------------------------------------
+ 504: 
+ 505: def helper(p, q):
+ 506:     if ((not p) and (not q)):
+ 507:         return True
+~508:     if ((not p) or q or q.val != p.val):
+ 509:         return False
+ 510:     return (helper(p.left, q.right) and helper(p.right, q.left))
+ 511: 
+ 512: 
+ 513: def is_symmetric_iterative(root):
+--------------------------------------------------------------------------------
+16
+[0.00894 s] killed by test_issymmetric2 (tests.CalculatorTest)
+   - [#  83] COD source:514: 
+--------------------------------------------------------------------------------
+ 510:     return (helper(p.left, q.right) and helper(p.right, q.left))
+ 511: 
+ 512: 
+ 513: def is_symmetric_iterative(root):
+~514:     if root:
+ 515:         return True
+ 516:     stack = [[root.left, root.right]]
+ 517:     while stack:
+ 518:         (left, right) = stack.pop()
+ 519:         if ((not left) and (not right)):
+--------------------------------------------------------------------------------
+16
+[0.01345 s] killed by test_issymmetric3 (tests.CalculatorTest)
+   - [#  84] COD source:519: 
+--------------------------------------------------------------------------------
+ 515:         return True
+ 516:     stack = [[root.left, root.right]]
+ 517:     while stack:
+ 518:         (left, right) = stack.pop()
+~519:         if (left and (not right)):
+ 520:             continue
+ 521:         if ((not left) or (not right)):
+ 522:             return False
+ 523:         if left.val == right.val:
+ 524:             stack.append([left.left, right.right])
+--------------------------------------------------------------------------------
+16
+[0.01888 s] killed by test_issymmetric4 (tests.CalculatorTest)
+   - [#  85] COD source:519: 
+--------------------------------------------------------------------------------
+ 515:         return True
+ 516:     stack = [[root.left, root.right]]
+ 517:     while stack:
+ 518:         (left, right) = stack.pop()
+~519:         if ((not left) and right):
+ 520:             continue
+ 521:         if ((not left) or (not right)):
+ 522:             return False
+ 523:         if left.val == right.val:
+ 524:             stack.append([left.left, right.right])
+--------------------------------------------------------------------------------
+16
+[0.02127 s] killed by test_issymmetric4 (tests.CalculatorTest)
+   - [#  86] COD source:521: 
+--------------------------------------------------------------------------------
+ 517:     while stack:
+ 518:         (left, right) = stack.pop()
+ 519:         if ((not left) and (not right)):
+ 520:             continue
+~521:         if (left or (not right)):
+ 522:             return False
+ 523:         if left.val == right.val:
+ 524:             stack.append([left.left, right.right])
+ 525:             stack.append([left.right, right.right])
+ 526:         else:
+--------------------------------------------------------------------------------
+16
+[0.01843 s] killed by test_issymmetric4 (tests.CalculatorTest)
+   - [#  87] COD source:521: 
+--------------------------------------------------------------------------------
+ 517:     while stack:
+ 518:         (left, right) = stack.pop()
+ 519:         if ((not left) and (not right)):
+ 520:             continue
+~521:         if ((not left) or right):
+ 522:             return False
+ 523:         if left.val == right.val:
+ 524:             stack.append([left.left, right.right])
+ 525:             stack.append([left.right, right.right])
+ 526:         else:
+--------------------------------------------------------------------------------
+16
+[0.01029 s] killed by test_issymmetric4 (tests.CalculatorTest)
+   - [#  88] COD source:566: 
+--------------------------------------------------------------------------------
+ 562:             queue.append(node.right)
+ 563:     return flag
+ 564: 
+ 565: def comp(p, q):
+~566:     if (p and (not q)):
+ 567:         return True
+ 568:     if (p and q):
+ 569:         return (p.val == q.val and comp(p.left, q.left) and comp(p.right, q.right))
+ 570:     return False
+ 571: 
+--------------------------------------------------------------------------------
+16
+[0.01175 s] killed by test_issubtree (tests.CalculatorTest)
+   - [#  89] COD source:566: 
+--------------------------------------------------------------------------------
+ 562:             queue.append(node.right)
+ 563:     return flag
+ 564: 
+ 565: def comp(p, q):
+~566:     if ((not p) and q):
+ 567:         return True
+ 568:     if (p and q):
+ 569:         return (p.val == q.val and comp(p.left, q.left) and comp(p.right, q.right))
+ 570:     return False
+ 571: 
+--------------------------------------------------------------------------------
+16
+[0.02008 s] killed by test_issubtree (tests.CalculatorTest)
+   - [#  90] COD source:598: 
+--------------------------------------------------------------------------------
+ 594: def get_depth(root):
+ 595:     
+ 596:     
+ 597:     
+~598:     if root:
+ 599:         return 0
+ 600:     left = get_depth(root.left)
+ 601:     right = get_depth(root.right)
+ 602:     if abs(left - right) > 1:
+ 603:         return (-1)
+--------------------------------------------------------------------------------
+16
+[0.01650 s] killed by test_isbalanced (tests.CalculatorTest)
+   - [#  91] COD source:614: 
+--------------------------------------------------------------------------------
+ 610:     
+ 611:     
+ 612:     left = max_height(root.left)
+ 613:     right = max_height(root.right)
+~614:     if (left and (not right)):
+ 615:         return True
+ 616:     if ((not left) or (not right)):
+ 617:         return False
+ 618:     return (abs(left - right) <= 1 and is_balanced_2(root.left) and is_balanced_2(root.right))
+ 619: 
+--------------------------------------------------------------------------------
+[0.01681 s] killed by test_isbalanced4 (tests.CalculatorTest)
+   - [#  92] COD source:614: 
+--------------------------------------------------------------------------------
+ 610:     
+ 611:     
+ 612:     left = max_height(root.left)
+ 613:     right = max_height(root.right)
+~614:     if ((not left) and right):
+ 615:         return True
+ 616:     if ((not left) or (not right)):
+ 617:         return False
+ 618:     return (abs(left - right) <= 1 and is_balanced_2(root.left) and is_balanced_2(root.right))
+ 619: 
+--------------------------------------------------------------------------------
+16
+[0.00683 s] killed by test_isbalanced4 (tests.CalculatorTest)
+   - [#  93] COD source:616: 
+--------------------------------------------------------------------------------
+ 612:     left = max_height(root.left)
+ 613:     right = max_height(root.right)
+ 614:     if ((not left) and (not right)):
+ 615:         return True
+~616:     if (left or (not right)):
+ 617:         return False
+ 618:     return (abs(left - right) <= 1 and is_balanced_2(root.left) and is_balanced_2(root.right))
+ 619: 
+ 620: def reverse(root):
+ 621:     if (not root):
+--------------------------------------------------------------------------------
+16
+[0.00594 s] killed by test_isbalanced4 (tests.CalculatorTest)
+   - [#  94] COD source:616: 
+--------------------------------------------------------------------------------
+ 612:     left = max_height(root.left)
+ 613:     right = max_height(root.right)
+ 614:     if ((not left) and (not right)):
+ 615:         return True
+~616:     if ((not left) or right):
+ 617:         return False
+ 618:     return (abs(left - right) <= 1 and is_balanced_2(root.left) and is_balanced_2(root.right))
+ 619: 
+ 620: def reverse(root):
+ 621:     if (not root):
+--------------------------------------------------------------------------------
+16
+[0.01773 s] killed by test_isbalanced4 (tests.CalculatorTest)
+   - [#  95] COD source:621: 
+--------------------------------------------------------------------------------
+ 617:         return False
+ 618:     return (abs(left - right) <= 1 and is_balanced_2(root.left) and is_balanced_2(root.right))
+ 619: 
+ 620: def reverse(root):
+~621:     if root:
+ 622:         return
+ 623:     (root.left, root.right) = (root.right, root.left)
+ 624:     if root.left:
+ 625:         reverse(root.left)
+ 626:     if root.right:
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[0.01413 s] killed by test_reverse (tests.CalculatorTest)
+   - [#  96] COD source:648: 
+--------------------------------------------------------------------------------
+ 644:         self.depth = 0
+ 645:         self.Node = None
+ 646: 
+ 647: def find_deepest_left(root, is_left, depth, res):
+~648:     if root:
+ 649:         return
+ 650:     if (is_left and depth > res.depth):
+ 651:         res.depth = depth
+ 652:         res.Node = root
+ 653:     find_deepest_left(root.left, True, depth + 1, res)
+--------------------------------------------------------------------------------
+16
+[0.00703 s] killed by test_deepestleft (tests.CalculatorTest)
+   - [#  97] COD source:660: 
+--------------------------------------------------------------------------------
+ 656: def bintree2list(root):
+ 657:     
+ 658:     
+ 659:     
+~660:     if root:
+ 661:         return root
+ 662:     root = bintree2list_util(root)
+ 663:     while root.left:
+ 664:         root = root.left
+ 665:     return return_tree_list(root)
+--------------------------------------------------------------------------------
+[0.00663 s] killed by test_bin2list (tests.CalculatorTest)
+   - [#  98] COD source:668: 
+--------------------------------------------------------------------------------
+ 664:         root = root.left
+ 665:     return return_tree_list(root)
+ 666: 
+ 667: def bintree2list_util(root):
+~668:     if root:
+ 669:         return root
+ 670:     if root.left:
+ 671:         left = bintree2list_util(root.left)
+ 672:         while left.right:
+ 673:             left = left.right
+--------------------------------------------------------------------------------
+[0.00598 s] killed by test_bin2list (tests.CalculatorTest)
+   - [#  99] COD source:705: 
+--------------------------------------------------------------------------------
+ 701: 
+ 702: 
+ 703: def inorder(root):
+ 704:     res = []
+~705:     if root:
+ 706:         return res
+ 707:     stack = []
+ 708:     while (root or stack):
+ 709:         while root:
+ 710:             stack.append(root)
+--------------------------------------------------------------------------------
+16
+[0.00778 s] killed by test_inorder (tests.CalculatorTest)
+   - [# 100] COD source:738: 
+--------------------------------------------------------------------------------
+ 734: 
+ 735: 
+ 736: def level_order(root):
+ 737:     ans = []
+~738:     if root:
+ 739:         return ans
+ 740:     level = [root]
+ 741:     while level:
+ 742:         current = []
+ 743:         new_level = []
+--------------------------------------------------------------------------------
+16
+[0.01380 s] killed by test_levelorder (tests.CalculatorTest)
+   - [# 101] COD source:775: 
+--------------------------------------------------------------------------------
+ 771: 
+ 772: 
+ 773: def zigzag_level(root):
+ 774:     res = []
+~775:     if root:
+ 776:         return res
+ 777:     level = [root]
+ 778:     flag = 1
+ 779:     while level:
+ 780:         current = []
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[]
+[0.01432 s] killed by test_zigzagorder (tests.CalculatorTest)
+   - [# 102] COD source:797: 
+--------------------------------------------------------------------------------
+ 793: 
+ 794: 
+ 795: 
+ 796: def array2bst(nums):
+~797:     if nums:
+ 798:         return None
+ 799:     mid = len(nums) // 2
+ 800:     node = TreeNode(nums[mid])
+ 801:     node.left = array2bst(nums[:mid])
+ 802:     node.right = array2bst(nums[mid + 1:])
+--------------------------------------------------------------------------------
+[0.01330 s] killed by test_array2bst (tests.CalculatorTest)
+   - [# 103] COD source:827: 
+--------------------------------------------------------------------------------
+ 823:     
+ 824:     
+ 825:     a = root.val
+ 826:     kid = root.left if target < a else root.right
+~827:     if kid:
+ 828:         return a
+ 829:     b = closest_value(kid, target)
+ 830:     return min((a, b), key=lambda x: abs(target - x))
+ 831: 
+ 832: 
+--------------------------------------------------------------------------------
+[0.00769 s] killed by test_closestvalue (tests.CalculatorTest)
+   - [# 104] COI source:286: 
+--------------------------------------------------------------------------------
+ 282: 
+ 283: 
+ 284: 
+ 285: def isSameTree(p, q):
+~286:     if (not ((not p) and (not q))):
+ 287:         return True
+ 288:     if (p and q and p.val == q.val):
+ 289:         return (isSameTree(p.left, q.left) and isSameTree(p.right, q.right))
+ 290:     return False
+ 291: 
+--------------------------------------------------------------------------------
+16
+[0.00706 s] killed by test_isSameTree_False (tests.CalculatorTest)
+   - [# 105] COI source:288: 
+--------------------------------------------------------------------------------
+ 284: 
+ 285: def isSameTree(p, q):
+ 286:     if ((not p) and (not q)):
+ 287:         return True
+~288:     if (not (p and q and p.val == q.val)):
+ 289:         return (isSameTree(p.left, q.left) and isSameTree(p.right, q.right))
+ 290:     return False
+ 291: 
+ 292: 
+ 293: 
+--------------------------------------------------------------------------------
+16
+[0.00555 s] killed by test_isSameTree (tests.CalculatorTest)
+   - [# 106] COI source:312: 
+--------------------------------------------------------------------------------
+ 308: 
+ 309: 
+ 310: 
+ 311: def path_sum(root, sum):
+~312:     if (not (not root)):
+ 313:         return []
+ 314:     res = []
+ 315:     DFS(root, sum, [], res)
+ 316:     return res
+ 317: 
+--------------------------------------------------------------------------------
+[0.01049 s] killed by test_pathSum (tests.CalculatorTest)
+   - [# 107] COI source:319: 
+--------------------------------------------------------------------------------
+ 315:     DFS(root, sum, [], res)
+ 316:     return res
+ 317: 
+ 318: def DFS(root, sum, ls, res):
+~319:     if (not ((not root.left) and (not root.right) and root.val == sum)):
+ 320:         ls.append(root.val)
+ 321:         res.append(ls)
+ 322:     if root.left:
+ 323:         DFS(root.left, sum - root.val, ls + [root.val], res)
+ 324:     if root.right:
+--------------------------------------------------------------------------------
+[0.01843 s] killed by test_pathSum (tests.CalculatorTest)
+   - [# 108] COI source:322: 
+--------------------------------------------------------------------------------
+ 318: def DFS(root, sum, ls, res):
+ 319:     if ((not root.left) and (not root.right) and root.val == sum):
+ 320:         ls.append(root.val)
+ 321:         res.append(ls)
+~322:     if (not root.left):
+ 323:         DFS(root.left, sum - root.val, ls + [root.val], res)
+ 324:     if root.right:
+ 325:         DFS(root.right, sum - root.val, ls + [root.val], res)
+ 326: 
+ 327: 
+--------------------------------------------------------------------------------
+16
+42
+[0.01798 s] killed by test_pathSum (tests.CalculatorTest)
+   - [# 109] COI source:324: 
+--------------------------------------------------------------------------------
+ 320:         ls.append(root.val)
+ 321:         res.append(ls)
+ 322:     if root.left:
+ 323:         DFS(root.left, sum - root.val, ls + [root.val], res)
+~324:     if (not root.right):
+ 325:         DFS(root.right, sum - root.val, ls + [root.val], res)
+ 326: 
+ 327: 
+ 328: 
+ 329: def path_sum2(root, s):
+--------------------------------------------------------------------------------
+16
+42
+[0.01200 s] killed by test_pathSum (tests.CalculatorTest)
+   - [# 110] COI source:330: 
+--------------------------------------------------------------------------------
+ 326: 
+ 327: 
+ 328: 
+ 329: def path_sum2(root, s):
+~330:     if (not (not root)):
+ 331:         return []
+ 332:     res = []
+ 333:     stack = [(root, [root.val])]
+ 334:     while stack:
+ 335:         (node, ls) = stack.pop()
+--------------------------------------------------------------------------------
+16
+42
+[0.00694 s] killed by test_pathSum2 (tests.CalculatorTest)
+   - [# 111] COI source:334: 
+--------------------------------------------------------------------------------
+ 330:     if (not root):
+ 331:         return []
+ 332:     res = []
+ 333:     stack = [(root, [root.val])]
+~334:     while (not stack):
+ 335:         (node, ls) = stack.pop()
+ 336:         if ((not node.left) and (not node.right) and sum(ls) == s):
+ 337:             res.append(ls)
+ 338:         if node.left:
+ 339:             stack.append((node.left, ls + [node.left.val]))
+--------------------------------------------------------------------------------
+16
+42
+[0.00617 s] killed by test_pathSum2 (tests.CalculatorTest)
+   - [# 112] COI source:336: 
+--------------------------------------------------------------------------------
+ 332:     res = []
+ 333:     stack = [(root, [root.val])]
+ 334:     while stack:
+ 335:         (node, ls) = stack.pop()
+~336:         if (not ((not node.left) and (not node.right) and sum(ls) == s)):
+ 337:             res.append(ls)
+ 338:         if node.left:
+ 339:             stack.append((node.left, ls + [node.left.val]))
+ 340:         if node.right:
+ 341:             stack.append((node.right, ls + [node.right.val]))
+--------------------------------------------------------------------------------
+16
+42
+[0.02584 s] killed by test_pathSum2 (tests.CalculatorTest)
+   - [# 113] COI source:338: 
+--------------------------------------------------------------------------------
+ 334:     while stack:
+ 335:         (node, ls) = stack.pop()
+ 336:         if ((not node.left) and (not node.right) and sum(ls) == s):
+ 337:             res.append(ls)
+~338:         if (not node.left):
+ 339:             stack.append((node.left, ls + [node.left.val]))
+ 340:         if node.right:
+ 341:             stack.append((node.right, ls + [node.right.val]))
+ 342:     return res
+ 343: 
+--------------------------------------------------------------------------------
+[0.02121 s] killed by test_pathSum2 (tests.CalculatorTest)
+   - [# 114] COI source:340: 
+--------------------------------------------------------------------------------
+ 336:         if ((not node.left) and (not node.right) and sum(ls) == s):
+ 337:             res.append(ls)
+ 338:         if node.left:
+ 339:             stack.append((node.left, ls + [node.left.val]))
+~340:         if (not node.right):
+ 341:             stack.append((node.right, ls + [node.right.val]))
+ 342:     return res
+ 343: 
+ 344: 
+ 345: 
+--------------------------------------------------------------------------------
+[0.01182 s] killed by test_pathSum2 (tests.CalculatorTest)
+   - [# 115] COI source:347: 
+--------------------------------------------------------------------------------
+ 343: 
+ 344: 
+ 345: 
+ 346: def path_sum3(root, sum):
+~347:     if (not (not root)):
+ 348:         return []
+ 349:     res = []
+ 350:     queue = [(root, root.val, [root.val])]
+ 351:     while queue:
+ 352:         (node, val, ls) = queue.pop(0)
+--------------------------------------------------------------------------------
+16
+42
+[0.00758 s] killed by test_pathSum3 (tests.CalculatorTest)
+   - [# 116] COI source:351: 
+--------------------------------------------------------------------------------
+ 347:     if (not root):
+ 348:         return []
+ 349:     res = []
+ 350:     queue = [(root, root.val, [root.val])]
+~351:     while (not queue):
+ 352:         (node, val, ls) = queue.pop(0)
+ 353:         if ((not node.left) and (not node.right) and val == sum):
+ 354:             res.append(ls)
+ 355:         if node.left:
+ 356:             queue.append((node.left, val + node.left.val, ls + [node.left.val]))
+--------------------------------------------------------------------------------
+16
+42
+[0.00820 s] killed by test_pathSum3 (tests.CalculatorTest)
+   - [# 117] COI source:353: 
+--------------------------------------------------------------------------------
+ 349:     res = []
+ 350:     queue = [(root, root.val, [root.val])]
+ 351:     while queue:
+ 352:         (node, val, ls) = queue.pop(0)
+~353:         if (not ((not node.left) and (not node.right) and val == sum)):
+ 354:             res.append(ls)
+ 355:         if node.left:
+ 356:             queue.append((node.left, val + node.left.val, ls + [node.left.val]))
+ 357:         if node.right:
+ 358:             queue.append((node.right, val + node.right.val, ls + [node.right.val]))
+--------------------------------------------------------------------------------
+16
+42
+[0.00628 s] killed by test_pathSum3 (tests.CalculatorTest)
+   - [# 118] COI source:355: 
+--------------------------------------------------------------------------------
+ 351:     while queue:
+ 352:         (node, val, ls) = queue.pop(0)
+ 353:         if ((not node.left) and (not node.right) and val == sum):
+ 354:             res.append(ls)
+~355:         if (not node.left):
+ 356:             queue.append((node.left, val + node.left.val, ls + [node.left.val]))
+ 357:         if node.right:
+ 358:             queue.append((node.right, val + node.right.val, ls + [node.right.val]))
+ 359:     return res
+ 360: 
+--------------------------------------------------------------------------------
+16
+42
+[0.01433 s] killed by test_pathSum3 (tests.CalculatorTest)
+   - [# 119] COI source:357: 
+--------------------------------------------------------------------------------
+ 353:         if ((not node.left) and (not node.right) and val == sum):
+ 354:             res.append(ls)
+ 355:         if node.left:
+ 356:             queue.append((node.left, val + node.left.val, ls + [node.left.val]))
+~357:         if (not node.right):
+ 358:             queue.append((node.right, val + node.right.val, ls + [node.right.val]))
+ 359:     return res
+ 360: 
+ 361: 
+ 362: 
+--------------------------------------------------------------------------------
+16
+42
+[0.02457 s] killed by test_pathSum3 (tests.CalculatorTest)
+   - [# 120] COI source:381: 
+--------------------------------------------------------------------------------
+ 377:     
+ 378:     
+ 379:     
+ 380:     
+~381:     if (not (not root)):
+ 382:         return False
+ 383:     if ((not root.left) and (not root.right) and root.val == sum):
+ 384:         return True
+ 385:     sum -= root.val
+ 386:     return (has_path_sum(root.left, sum) or has_path_sum(root.right, sum))
+--------------------------------------------------------------------------------
+16
+42
+False
+[0.00948 s] killed by test_pathSum4 (tests.CalculatorTest)
+   - [# 121] COI source:383: 
+--------------------------------------------------------------------------------
+ 379:     
+ 380:     
+ 381:     if (not root):
+ 382:         return False
+~383:     if (not ((not root.left) and (not root.right) and root.val == sum)):
+ 384:         return True
+ 385:     sum -= root.val
+ 386:     return (has_path_sum(root.left, sum) or has_path_sum(root.right, sum))
+ 387: 
+ 388: 
+--------------------------------------------------------------------------------
+[0.01578 s] killed by test_pathSum5 (tests.CalculatorTest)
+   - [# 122] COI source:391: 
+--------------------------------------------------------------------------------
+ 387: 
+ 388: 
+ 389: 
+ 390: def has_path_sum2(root, sum):
+~391:     if (not (not root)):
+ 392:         return False
+ 393:     stack = [(root, root.val)]
+ 394:     while stack:
+ 395:         (node, val) = stack.pop()
+ 396:         if ((not node.left) and (not node.right)):
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+[0.02373 s] killed by test_pathSum6 (tests.CalculatorTest)
+   - [# 123] COI source:394: 
+--------------------------------------------------------------------------------
+ 390: def has_path_sum2(root, sum):
+ 391:     if (not root):
+ 392:         return False
+ 393:     stack = [(root, root.val)]
+~394:     while (not stack):
+ 395:         (node, val) = stack.pop()
+ 396:         if ((not node.left) and (not node.right)):
+ 397:             if val == sum:
+ 398:                 return True
+ 399:         if node.left:
+--------------------------------------------------------------------------------
+[0.00809 s] killed by test_pathSum6 (tests.CalculatorTest)
+   - [# 124] COI source:396: 
+--------------------------------------------------------------------------------
+ 392:         return False
+ 393:     stack = [(root, root.val)]
+ 394:     while stack:
+ 395:         (node, val) = stack.pop()
+~396:         if (not ((not node.left) and (not node.right))):
+ 397:             if val == sum:
+ 398:                 return True
+ 399:         if node.left:
+ 400:             stack.append((node.left, val + node.left.val))
+ 401:         if node.right:
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+[0.01900 s] killed by test_pathSum6 (tests.CalculatorTest)
+   - [# 125] COI source:397: 
+--------------------------------------------------------------------------------
+ 393:     stack = [(root, root.val)]
+ 394:     while stack:
+ 395:         (node, val) = stack.pop()
+ 396:         if ((not node.left) and (not node.right)):
+~397:             if (not val == sum):
+ 398:                 return True
+ 399:         if node.left:
+ 400:             stack.append((node.left, val + node.left.val))
+ 401:         if node.right:
+ 402:             stack.append((node.right, val + node.right.val))
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+[0.02866 s] killed by test_pathSum7 (tests.CalculatorTest)
+   - [# 126] COI source:399: 
+--------------------------------------------------------------------------------
+ 395:         (node, val) = stack.pop()
+ 396:         if ((not node.left) and (not node.right)):
+ 397:             if val == sum:
+ 398:                 return True
+~399:         if (not node.left):
+ 400:             stack.append((node.left, val + node.left.val))
+ 401:         if node.right:
+ 402:             stack.append((node.right, val + node.right.val))
+ 403:     return False
+ 404: 
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+[0.00755 s] killed by test_pathSum6 (tests.CalculatorTest)
+   - [# 127] COI source:401: 
+--------------------------------------------------------------------------------
+ 397:             if val == sum:
+ 398:                 return True
+ 399:         if node.left:
+ 400:             stack.append((node.left, val + node.left.val))
+~401:         if (not node.right):
+ 402:             stack.append((node.right, val + node.right.val))
+ 403:     return False
+ 404: 
+ 405: 
+ 406: 
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+[0.00615 s] killed by test_pathSum6 (tests.CalculatorTest)
+   - [# 128] COI source:408: 
+--------------------------------------------------------------------------------
+ 404: 
+ 405: 
+ 406: 
+ 407: def has_path_sum3(root, sum):
+~408:     if (not (not root)):
+ 409:         return False
+ 410:     queue = [(root, sum - root.val)]
+ 411:     while queue:
+ 412:         (node, val) = queue.pop(0)
+ 413:         if ((not node.left) and (not node.right)):
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[0.02204 s] killed by test_pathSum8 (tests.CalculatorTest)
+   - [# 129] COI source:411: 
+--------------------------------------------------------------------------------
+ 407: def has_path_sum3(root, sum):
+ 408:     if (not root):
+ 409:         return False
+ 410:     queue = [(root, sum - root.val)]
+~411:     while (not queue):
+ 412:         (node, val) = queue.pop(0)
+ 413:         if ((not node.left) and (not node.right)):
+ 414:             if val == 0:
+ 415:                 return True
+ 416:         if node.left:
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[0.01063 s] killed by test_pathSum8 (tests.CalculatorTest)
+   - [# 130] COI source:413: 
+--------------------------------------------------------------------------------
+ 409:         return False
+ 410:     queue = [(root, sum - root.val)]
+ 411:     while queue:
+ 412:         (node, val) = queue.pop(0)
+~413:         if (not ((not node.left) and (not node.right))):
+ 414:             if val == 0:
+ 415:                 return True
+ 416:         if node.left:
+ 417:             queue.append((node.left, val - node.left.val))
+ 418:         if node.right:
+--------------------------------------------------------------------------------
+[0.00856 s] killed by test_pathSum8 (tests.CalculatorTest)
+   - [# 131] COI source:414: 
+--------------------------------------------------------------------------------
+ 410:     queue = [(root, sum - root.val)]
+ 411:     while queue:
+ 412:         (node, val) = queue.pop(0)
+ 413:         if ((not node.left) and (not node.right)):
+~414:             if (not val == 0):
+ 415:                 return True
+ 416:         if node.left:
+ 417:             queue.append((node.left, val - node.left.val))
+ 418:         if node.right:
+ 419:             queue.append((node.right, val - node.right.val))
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[0.00616 s] killed by test_pathSum9 (tests.CalculatorTest)
+   - [# 132] COI source:416: 
+--------------------------------------------------------------------------------
+ 412:         (node, val) = queue.pop(0)
+ 413:         if ((not node.left) and (not node.right)):
+ 414:             if val == 0:
+ 415:                 return True
+~416:         if (not node.left):
+ 417:             queue.append((node.left, val - node.left.val))
+ 418:         if node.right:
+ 419:             queue.append((node.right, val - node.right.val))
+ 420:     return False
+ 421: 
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[0.01022 s] killed by test_pathSum8 (tests.CalculatorTest)
+   - [# 133] COI source:418: 
+--------------------------------------------------------------------------------
+ 414:             if val == 0:
+ 415:                 return True
+ 416:         if node.left:
+ 417:             queue.append((node.left, val - node.left.val))
+~418:         if (not node.right):
+ 419:             queue.append((node.right, val - node.right.val))
+ 420:     return False
+ 421: 
+ 422: 
+ 423: 
+--------------------------------------------------------------------------------
+[0.02239 s] killed by test_pathSum8 (tests.CalculatorTest)
+   - [# 134] COI source:430: 
+--------------------------------------------------------------------------------
+ 426: 
+ 427: 
+ 428: 
+ 429: def max_height(root):
+~430:     if (not (not root)):
+ 431:         return 0
+ 432:     height = 0
+ 433:     queue = [root]
+ 434:     while queue:
+ 435:         height += 1
+--------------------------------------------------------------------------------
+[0.00751 s] killed by test_isbalanced3 (tests.CalculatorTest)
+   - [# 135] COI source:434: 
+--------------------------------------------------------------------------------
+ 430:     if (not root):
+ 431:         return 0
+ 432:     height = 0
+ 433:     queue = [root]
+~434:     while (not queue):
+ 435:         height += 1
+ 436:         level = []
+ 437:         while queue:
+ 438:             node = queue.pop(0)
+ 439:             if node.left:
+--------------------------------------------------------------------------------
+16
+[0.02244 s] killed by test_isbalanced3 (tests.CalculatorTest)
+   - [# 136] COI source:437: 
+--------------------------------------------------------------------------------
+ 433:     queue = [root]
+ 434:     while queue:
+ 435:         height += 1
+ 436:         level = []
+~437:         while (not queue):
+ 438:             node = queue.pop(0)
+ 439:             if node.left:
+ 440:                 level.append(node.left)
+ 441:             if node.right:
+ 442:                 level.append(node.right)
+--------------------------------------------------------------------------------
+16
+[0.01292 s] killed by test_maxheight (tests.CalculatorTest)
+   - [# 137] COI source:439: 
+--------------------------------------------------------------------------------
+ 435:         height += 1
+ 436:         level = []
+ 437:         while queue:
+ 438:             node = queue.pop(0)
+~439:             if (not node.left):
+ 440:                 level.append(node.left)
+ 441:             if node.right:
+ 442:                 level.append(node.right)
+ 443:         queue = level
+ 444:     return height
+--------------------------------------------------------------------------------
+16
+[0.00916 s] killed by test_isbalanced3 (tests.CalculatorTest)
+   - [# 138] COI source:441: 
+--------------------------------------------------------------------------------
+ 437:         while queue:
+ 438:             node = queue.pop(0)
+ 439:             if node.left:
+ 440:                 level.append(node.left)
+~441:             if (not node.right):
+ 442:                 level.append(node.right)
+ 443:         queue = level
+ 444:     return height
+ 445: 
+ 446: 
+--------------------------------------------------------------------------------
+16
+[0.01978 s] killed by test_isbalanced3 (tests.CalculatorTest)
+   - [# 139] COI source:473: 
+--------------------------------------------------------------------------------
+ 469:     
+ 470:     
+ 471:     
+ 472:     
+~473:     if (not ((not root) or root is p or root is q)):
+ 474:         return root
+ 475:     left = LCA(root.left, p, q)
+ 476:     right = LCA(root.right, p, q)
+ 477:     if (left and right):
+ 478:         return root
+--------------------------------------------------------------------------------
+[0.01879 s] killed by test_LCA (tests.CalculatorTest)
+   - [# 140] COI source:477: 
+--------------------------------------------------------------------------------
+ 473:     if ((not root) or root is p or root is q):
+ 474:         return root
+ 475:     left = LCA(root.left, p, q)
+ 476:     right = LCA(root.right, p, q)
+~477:     if (not (left and right)):
+ 478:         return root
+ 479:     return left if left else right
+ 480: 
+ 481: 
+ 482: 
+--------------------------------------------------------------------------------
+[0.00640 s] killed by test_LCA (tests.CalculatorTest)
+   - [# 141] COI source:500: 
+--------------------------------------------------------------------------------
+ 496: 
+ 497: 
+ 498: 
+ 499: def is_symmetric(root):
+~500:     if (not (not root)):
+ 501:         return True
+ 502:     return helper(root.left, root.right)
+ 503: 
+ 504: 
+ 505: def helper(p, q):
+--------------------------------------------------------------------------------
+16
+[0.00707 s] killed by test_issymmetric (tests.CalculatorTest)
+   - [# 142] COI source:506: 
+--------------------------------------------------------------------------------
+ 502:     return helper(root.left, root.right)
+ 503: 
+ 504: 
+ 505: def helper(p, q):
+~506:     if (not ((not p) and (not q))):
+ 507:         return True
+ 508:     if ((not p) or (not q) or q.val != p.val):
+ 509:         return False
+ 510:     return (helper(p.left, q.right) and helper(p.right, q.left))
+ 511: 
+--------------------------------------------------------------------------------
+16
+[0.01138 s] killed by test_issymmetric (tests.CalculatorTest)
+   - [# 143] COI source:508: 
+--------------------------------------------------------------------------------
+ 504: 
+ 505: def helper(p, q):
+ 506:     if ((not p) and (not q)):
+ 507:         return True
+~508:     if (not ((not p) or (not q) or q.val != p.val)):
+ 509:         return False
+ 510:     return (helper(p.left, q.right) and helper(p.right, q.left))
+ 511: 
+ 512: 
+ 513: def is_symmetric_iterative(root):
+--------------------------------------------------------------------------------
+[0.01988 s] killed by test_issymmetric (tests.CalculatorTest)
+   - [# 144] COI source:514: 
+--------------------------------------------------------------------------------
+ 510:     return (helper(p.left, q.right) and helper(p.right, q.left))
+ 511: 
+ 512: 
+ 513: def is_symmetric_iterative(root):
+~514:     if (not (not root)):
+ 515:         return True
+ 516:     stack = [[root.left, root.right]]
+ 517:     while stack:
+ 518:         (left, right) = stack.pop()
+ 519:         if ((not left) and (not right)):
+--------------------------------------------------------------------------------
+16
+[0.01525 s] killed by test_issymmetric3 (tests.CalculatorTest)
+   - [# 145] COI source:517: 
+--------------------------------------------------------------------------------
+ 513: def is_symmetric_iterative(root):
+ 514:     if (not root):
+ 515:         return True
+ 516:     stack = [[root.left, root.right]]
+~517:     while (not stack):
+ 518:         (left, right) = stack.pop()
+ 519:         if ((not left) and (not right)):
+ 520:             continue
+ 521:         if ((not left) or (not right)):
+ 522:             return False
+--------------------------------------------------------------------------------
+16
+[0.01500 s] killed by test_issymmetric3 (tests.CalculatorTest)
+   - [# 146] COI source:519: 
+--------------------------------------------------------------------------------
+ 515:         return True
+ 516:     stack = [[root.left, root.right]]
+ 517:     while stack:
+ 518:         (left, right) = stack.pop()
+~519:         if (not ((not left) and (not right))):
+ 520:             continue
+ 521:         if ((not left) or (not right)):
+ 522:             return False
+ 523:         if left.val == right.val:
+ 524:             stack.append([left.left, right.right])
+--------------------------------------------------------------------------------
+[0.01076 s] killed by test_issymmetric3 (tests.CalculatorTest)
+   - [# 147] COI source:521: 
+--------------------------------------------------------------------------------
+ 517:     while stack:
+ 518:         (left, right) = stack.pop()
+ 519:         if ((not left) and (not right)):
+ 520:             continue
+~521:         if (not ((not left) or (not right))):
+ 522:             return False
+ 523:         if left.val == right.val:
+ 524:             stack.append([left.left, right.right])
+ 525:             stack.append([left.right, right.right])
+ 526:         else:
+--------------------------------------------------------------------------------
+[0.00733 s] killed by test_issymmetric4 (tests.CalculatorTest)
+   - [# 148] COI source:523: 
+--------------------------------------------------------------------------------
+ 519:         if ((not left) and (not right)):
+ 520:             continue
+ 521:         if ((not left) or (not right)):
+ 522:             return False
+~523:         if (not left.val == right.val):
+ 524:             stack.append([left.left, right.right])
+ 525:             stack.append([left.right, right.right])
+ 526:         else:
+ 527:             return False
+ 528:     return True
+--------------------------------------------------------------------------------
+16
+[0.01142 s] killed by test_issymmetric4 (tests.CalculatorTest)
+   - [# 149] COI source:555: 
+--------------------------------------------------------------------------------
+ 551: def is_subtree(big, small):
+ 552:     flag = False
+ 553:     queue = collections.deque()
+ 554:     queue.append(big)
+~555:     while (not queue):
+ 556:         node = queue.popleft()
+ 557:         if node.val == small.val:
+ 558:             flag = comp(node, small)
+ 559:             break
+ 560:         else:
+--------------------------------------------------------------------------------
+[0.00650 s] killed by test_issubtree (tests.CalculatorTest)
+   - [# 150] COI source:557: 
+--------------------------------------------------------------------------------
+ 553:     queue = collections.deque()
+ 554:     queue.append(big)
+ 555:     while queue:
+ 556:         node = queue.popleft()
+~557:         if (not node.val == small.val):
+ 558:             flag = comp(node, small)
+ 559:             break
+ 560:         else:
+ 561:             queue.append(node.left)
+ 562:             queue.append(node.right)
+--------------------------------------------------------------------------------
+[0.00944 s] killed by test_issubtree (tests.CalculatorTest)
+   - [# 151] COI source:566: 
+--------------------------------------------------------------------------------
+ 562:             queue.append(node.right)
+ 563:     return flag
+ 564: 
+ 565: def comp(p, q):
+~566:     if (not ((not p) and (not q))):
+ 567:         return True
+ 568:     if (p and q):
+ 569:         return (p.val == q.val and comp(p.left, q.left) and comp(p.right, q.right))
+ 570:     return False
+ 571: 
+--------------------------------------------------------------------------------
+16
+[0.01729 s] killed by test_issubtree2 (tests.CalculatorTest)
+   - [# 152] COI source:568: 
+--------------------------------------------------------------------------------
+ 564: 
+ 565: def comp(p, q):
+ 566:     if ((not p) and (not q)):
+ 567:         return True
+~568:     if (not (p and q)):
+ 569:         return (p.val == q.val and comp(p.left, q.left) and comp(p.right, q.right))
+ 570:     return False
+ 571: 
+ 572: 
+ 573: 
+--------------------------------------------------------------------------------
+[0.01132 s] killed by test_issubtree (tests.CalculatorTest)
+   - [# 153] COI source:598: 
+--------------------------------------------------------------------------------
+ 594: def get_depth(root):
+ 595:     
+ 596:     
+ 597:     
+~598:     if (not (not root)):
+ 599:         return 0
+ 600:     left = get_depth(root.left)
+ 601:     right = get_depth(root.right)
+ 602:     if abs(left - right) > 1:
+ 603:         return (-1)
+--------------------------------------------------------------------------------
+16
+[0.00748 s] killed by test_isbalanced (tests.CalculatorTest)
+   - [# 154] COI source:602: 
+--------------------------------------------------------------------------------
+ 598:     if (not root):
+ 599:         return 0
+ 600:     left = get_depth(root.left)
+ 601:     right = get_depth(root.right)
+~602:     if (not abs(left - right) > 1):
+ 603:         return (-1)
+ 604:     return 1 + max(left, right)
+ 605: 
+ 606: 
+ 607: 
+--------------------------------------------------------------------------------
+16
+[0.00591 s] killed by test_isbalanced2 (tests.CalculatorTest)
+   - [# 155] COI source:614: 
+--------------------------------------------------------------------------------
+ 610:     
+ 611:     
+ 612:     left = max_height(root.left)
+ 613:     right = max_height(root.right)
+~614:     if (not ((not left) and (not right))):
+ 615:         return True
+ 616:     if ((not left) or (not right)):
+ 617:         return False
+ 618:     return (abs(left - right) <= 1 and is_balanced_2(root.left) and is_balanced_2(root.right))
+ 619: 
+--------------------------------------------------------------------------------
+[0.00899 s] killed by test_isbalanced3 (tests.CalculatorTest)
+   - [# 156] COI source:616: 
+--------------------------------------------------------------------------------
+ 612:     left = max_height(root.left)
+ 613:     right = max_height(root.right)
+ 614:     if ((not left) and (not right)):
+ 615:         return True
+~616:     if (not ((not left) or (not right))):
+ 617:         return False
+ 618:     return (abs(left - right) <= 1 and is_balanced_2(root.left) and is_balanced_2(root.right))
+ 619: 
+ 620: def reverse(root):
+ 621:     if (not root):
+--------------------------------------------------------------------------------
+16
+[0.02247 s] killed by test_isbalanced4 (tests.CalculatorTest)
+   - [# 157] COI source:621: 
+--------------------------------------------------------------------------------
+ 617:         return False
+ 618:     return (abs(left - right) <= 1 and is_balanced_2(root.left) and is_balanced_2(root.right))
+ 619: 
+ 620: def reverse(root):
+~621:     if (not (not root)):
+ 622:         return
+ 623:     (root.left, root.right) = (root.right, root.left)
+ 624:     if root.left:
+ 625:         reverse(root.left)
+ 626:     if root.right:
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[0.01059 s] killed by test_reverse (tests.CalculatorTest)
+   - [# 158] COI source:624: 
+--------------------------------------------------------------------------------
+ 620: def reverse(root):
+ 621:     if (not root):
+ 622:         return
+ 623:     (root.left, root.right) = (root.right, root.left)
+~624:     if (not root.left):
+ 625:         reverse(root.left)
+ 626:     if root.right:
+ 627:         reverse(root.right)
+ 628: 
+ 629: 
+--------------------------------------------------------------------------------
+[0.02616 s] killed by test_reverse (tests.CalculatorTest)
+   - [# 159] COI source:626: 
+--------------------------------------------------------------------------------
+ 622:         return
+ 623:     (root.left, root.right) = (root.right, root.left)
+ 624:     if root.left:
+ 625:         reverse(root.left)
+~626:     if (not root.right):
+ 627:         reverse(root.right)
+ 628: 
+ 629: 
+ 630: 
+ 631: 
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[0.01173 s] killed by test_reverse (tests.CalculatorTest)
+   - [# 160] COI source:648: 
+--------------------------------------------------------------------------------
+ 644:         self.depth = 0
+ 645:         self.Node = None
+ 646: 
+ 647: def find_deepest_left(root, is_left, depth, res):
+~648:     if (not (not root)):
+ 649:         return
+ 650:     if (is_left and depth > res.depth):
+ 651:         res.depth = depth
+ 652:         res.Node = root
+ 653:     find_deepest_left(root.left, True, depth + 1, res)
+--------------------------------------------------------------------------------
+16
+[0.00781 s] killed by test_deepestleft (tests.CalculatorTest)
+   - [# 161] COI source:650: 
+--------------------------------------------------------------------------------
+ 646: 
+ 647: def find_deepest_left(root, is_left, depth, res):
+ 648:     if (not root):
+ 649:         return
+~650:     if (not (is_left and depth > res.depth)):
+ 651:         res.depth = depth
+ 652:         res.Node = root
+ 653:     find_deepest_left(root.left, True, depth + 1, res)
+ 654:     find_deepest_left(root.right, False, depth + 1, res)
+ 655: 
+--------------------------------------------------------------------------------
+16
+[0.01127 s] killed by test_deepestleft (tests.CalculatorTest)
+   - [# 162] COI source:660: 
+--------------------------------------------------------------------------------
+ 656: def bintree2list(root):
+ 657:     
+ 658:     
+ 659:     
+~660:     if (not (not root)):
+ 661:         return root
+ 662:     root = bintree2list_util(root)
+ 663:     while root.left:
+ 664:         root = root.left
+ 665:     return return_tree_list(root)
+--------------------------------------------------------------------------------
+[0.00619 s] killed by test_bin2list (tests.CalculatorTest)
+   - [# 163] COI source:663: 
+--------------------------------------------------------------------------------
+ 659:     
+ 660:     if (not root):
+ 661:         return root
+ 662:     root = bintree2list_util(root)
+~663:     while (not root.left):
+ 664:         root = root.left
+ 665:     return return_tree_list(root)
+ 666: 
+ 667: def bintree2list_util(root):
+ 668:     if (not root):
+--------------------------------------------------------------------------------
+[0.00574 s] killed by test_bin2list (tests.CalculatorTest)
+   - [# 164] COI source:668: 
+--------------------------------------------------------------------------------
+ 664:         root = root.left
+ 665:     return return_tree_list(root)
+ 666: 
+ 667: def bintree2list_util(root):
+~668:     if (not (not root)):
+ 669:         return root
+ 670:     if root.left:
+ 671:         left = bintree2list_util(root.left)
+ 672:         while left.right:
+ 673:             left = left.right
+--------------------------------------------------------------------------------
+[0.00669 s] killed by test_bin2list (tests.CalculatorTest)
+   - [# 165] COI source:670: 
+--------------------------------------------------------------------------------
+ 666: 
+ 667: def bintree2list_util(root):
+ 668:     if (not root):
+ 669:         return root
+~670:     if (not root.left):
+ 671:         left = bintree2list_util(root.left)
+ 672:         while left.right:
+ 673:             left = left.right
+ 674:         left.right = root
+ 675:         root.left = left
+--------------------------------------------------------------------------------
+[0.00525 s] killed by test_bin2list (tests.CalculatorTest)
+   - [# 166] COI source:672: 
+--------------------------------------------------------------------------------
+ 668:     if (not root):
+ 669:         return root
+ 670:     if root.left:
+ 671:         left = bintree2list_util(root.left)
+~672:         while (not left.right):
+ 673:             left = left.right
+ 674:         left.right = root
+ 675:         root.left = left
+ 676:     if root.right:
+ 677:         right = bintree2list_util(root.right)
+--------------------------------------------------------------------------------
+[0.00564 s] killed by test_bin2list (tests.CalculatorTest)
+   - [# 167] COI source:676: 
+--------------------------------------------------------------------------------
+ 672:         while left.right:
+ 673:             left = left.right
+ 674:         left.right = root
+ 675:         root.left = left
+~676:     if (not root.right):
+ 677:         right = bintree2list_util(root.right)
+ 678:         while right.left:
+ 679:             right = right.left
+ 680:         right.left = root
+ 681:         root.right = right
+--------------------------------------------------------------------------------
+[0.00516 s] killed by test_bin2list (tests.CalculatorTest)
+   - [# 168] COI source:678: 
+--------------------------------------------------------------------------------
+ 674:         left.right = root
+ 675:         root.left = left
+ 676:     if root.right:
+ 677:         right = bintree2list_util(root.right)
+~678:         while (not right.left):
+ 679:             right = right.left
+ 680:         right.left = root
+ 681:         root.right = right
+ 682:     return root
+ 683: 
+--------------------------------------------------------------------------------
+[0.02001 s] killed by test_bin2list (tests.CalculatorTest)
+   - [# 169] COI source:686: 
+--------------------------------------------------------------------------------
+ 682:     return root
+ 683: 
+ 684: def return_tree_list(root):
+ 685:     lst = []
+~686:     while (not root):
+ 687:         lst.append(root.val)
+ 688:         root = root.right
+ 689:     return lst
+ 690: 
+ 691: 
+--------------------------------------------------------------------------------
+[0.00911 s] killed by test_bin2list (tests.CalculatorTest)
+   - [# 170] COI source:705: 
+--------------------------------------------------------------------------------
+ 701: 
+ 702: 
+ 703: def inorder(root):
+ 704:     res = []
+~705:     if (not (not root)):
+ 706:         return res
+ 707:     stack = []
+ 708:     while (root or stack):
+ 709:         while root:
+ 710:             stack.append(root)
+--------------------------------------------------------------------------------
+16
+[0.01203 s] killed by test_inorder (tests.CalculatorTest)
+   - [# 171] COI source:708: 
+--------------------------------------------------------------------------------
+ 704:     res = []
+ 705:     if (not root):
+ 706:         return res
+ 707:     stack = []
+~708:     while (not (root or stack)):
+ 709:         while root:
+ 710:             stack.append(root)
+ 711:             root = root.left
+ 712:         root = stack.pop()
+ 713:         res.append(root.val)
+--------------------------------------------------------------------------------
+[0.00547 s] killed by test_inorder (tests.CalculatorTest)
+   - [# 172] COI source:709: 
+--------------------------------------------------------------------------------
+ 705:     if (not root):
+ 706:         return res
+ 707:     stack = []
+ 708:     while (root or stack):
+~709:         while (not root):
+ 710:             stack.append(root)
+ 711:             root = root.left
+ 712:         root = stack.pop()
+ 713:         res.append(root.val)
+ 714:         root = root.right
+--------------------------------------------------------------------------------
+16
+[0.00559 s] killed by test_inorder (tests.CalculatorTest)
+   - [# 173] COI source:738: 
+--------------------------------------------------------------------------------
+ 734: 
+ 735: 
+ 736: def level_order(root):
+ 737:     ans = []
+~738:     if (not (not root)):
+ 739:         return ans
+ 740:     level = [root]
+ 741:     while level:
+ 742:         current = []
+ 743:         new_level = []
+--------------------------------------------------------------------------------
+16
+[0.02372 s] killed by test_levelorder (tests.CalculatorTest)
+   - [# 174] COI source:741: 
+--------------------------------------------------------------------------------
+ 737:     ans = []
+ 738:     if (not root):
+ 739:         return ans
+ 740:     level = [root]
+~741:     while (not level):
+ 742:         current = []
+ 743:         new_level = []
+ 744:         for node in level:
+ 745:             current.append(node.val)
+ 746:             if node.left:
+--------------------------------------------------------------------------------
+16
+[0.02392 s] killed by test_levelorder (tests.CalculatorTest)
+   - [# 175] COI source:746: 
+--------------------------------------------------------------------------------
+ 742:         current = []
+ 743:         new_level = []
+ 744:         for node in level:
+ 745:             current.append(node.val)
+~746:             if (not node.left):
+ 747:                 new_level.append(node.left)
+ 748:             if node.right:
+ 749:                 new_level.append(node.right)
+ 750:         level = new_level
+ 751:         ans.append(current)
+--------------------------------------------------------------------------------
+16
+[0.00603 s] killed by test_levelorder (tests.CalculatorTest)
+   - [# 176] COI source:748: 
+--------------------------------------------------------------------------------
+ 744:         for node in level:
+ 745:             current.append(node.val)
+ 746:             if node.left:
+ 747:                 new_level.append(node.left)
+~748:             if (not node.right):
+ 749:                 new_level.append(node.right)
+ 750:         level = new_level
+ 751:         ans.append(current)
+ 752:     return ans
+ 753: 
+--------------------------------------------------------------------------------
+16
+[0.02071 s] killed by test_levelorder (tests.CalculatorTest)
+   - [# 177] COI source:775: 
+--------------------------------------------------------------------------------
+ 771: 
+ 772: 
+ 773: def zigzag_level(root):
+ 774:     res = []
+~775:     if (not (not root)):
+ 776:         return res
+ 777:     level = [root]
+ 778:     flag = 1
+ 779:     while level:
+ 780:         current = []
+--------------------------------------------------------------------------------
+[0.02433 s] killed by test_zigzagorder (tests.CalculatorTest)
+   - [# 178] COI source:779: 
+--------------------------------------------------------------------------------
+ 775:     if (not root):
+ 776:         return res
+ 777:     level = [root]
+ 778:     flag = 1
+~779:     while (not level):
+ 780:         current = []
+ 781:         new_level = []
+ 782:         for node in level:
+ 783:             current.append(node.val)
+ 784:             if node.left:
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[]
+[0.00879 s] killed by test_zigzagorder (tests.CalculatorTest)
+   - [# 179] COI source:784: 
+--------------------------------------------------------------------------------
+ 780:         current = []
+ 781:         new_level = []
+ 782:         for node in level:
+ 783:             current.append(node.val)
+~784:             if (not node.left):
+ 785:                 new_level.append(node.left)
+ 786:             if node.right:
+ 787:                 new_level.append(node.right)
+ 788:         level = new_level
+ 789:         res.append(current[::flag])
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[0.00641 s] killed by test_zigzagorder (tests.CalculatorTest)
+   - [# 180] COI source:786: 
+--------------------------------------------------------------------------------
+ 782:         for node in level:
+ 783:             current.append(node.val)
+ 784:             if node.left:
+ 785:                 new_level.append(node.left)
+~786:             if (not node.right):
+ 787:                 new_level.append(node.right)
+ 788:         level = new_level
+ 789:         res.append(current[::flag])
+ 790:         flag *= (-1)
+ 791:     return res
+--------------------------------------------------------------------------------
+[0.01439 s] killed by test_zigzagorder (tests.CalculatorTest)
+   - [# 181] COI source:797: 
+--------------------------------------------------------------------------------
+ 793: 
+ 794: 
+ 795: 
+ 796: def array2bst(nums):
+~797:     if (not (not nums)):
+ 798:         return None
+ 799:     mid = len(nums) // 2
+ 800:     node = TreeNode(nums[mid])
+ 801:     node.left = array2bst(nums[:mid])
+ 802:     node.right = array2bst(nums[mid + 1:])
+--------------------------------------------------------------------------------
+[0.01797 s] killed by test_array2bst (tests.CalculatorTest)
+   - [# 182] COI source:827: 
+--------------------------------------------------------------------------------
+ 823:     
+ 824:     
+ 825:     a = root.val
+ 826:     kid = root.left if target < a else root.right
+~827:     if (not (not kid)):
+ 828:         return a
+ 829:     b = closest_value(kid, target)
+ 830:     return min((a, b), key=lambda x: abs(target - x))
+ 831: 
+ 832: 
+--------------------------------------------------------------------------------
+8
+[0.00646 s] killed by test_closestvalue (tests.CalculatorTest)
+   - [# 183] COI source:859: 
+--------------------------------------------------------------------------------
+ 855:     return isBSTUtil(node, INT_MIN, INT_MAX)
+ 856: 
+ 857: def isBSTUtil(node, mini, maxi):
+ 858:     
+~859:     if (not node is None):
+ 860:         return True
+ 861:     
+ 862:     if (node.val < mini or node.val > maxi):
+ 863:         return False
+ 864:     
+--------------------------------------------------------------------------------
+16
+[0.00567 s] killed by test_isbst2 (tests.CalculatorTest)
+   - [# 184] COI source:862: 
+--------------------------------------------------------------------------------
+ 858:     
+ 859:     if node is None:
+ 860:         return True
+ 861:     
+~862:     if (not (node.val < mini or node.val > maxi)):
+ 863:         return False
+ 864:     
+ 865:     return (isBSTUtil(node.left, mini, node.val - 1) and 
+ 866:     isBSTUtil(node.right, node.val + 1, maxi))
+ 867: 
+--------------------------------------------------------------------------------
+16
+[0.00565 s] killed by test_isbst (tests.CalculatorTest)
+   - [# 185] COI source:883: 
+--------------------------------------------------------------------------------
+ 879:     return dp[(-1)]
+ 880: 
+ 881: def successor(root, node):
+ 882:     succ = None
+~883:     while (not root):
+ 884:         if node.val < root.val:
+ 885:             succ = root
+ 886:             root = root.left
+ 887:         else:
+ 888:             root = root.right
+--------------------------------------------------------------------------------
+[0.01641 s] killed by test_successor (tests.CalculatorTest)
+   - [# 186] COI source:884: 
+--------------------------------------------------------------------------------
+ 880: 
+ 881: def successor(root, node):
+ 882:     succ = None
+ 883:     while root:
+~884:         if (not node.val < root.val):
+ 885:             succ = root
+ 886:             root = root.left
+ 887:         else:
+ 888:             root = root.right
+ 889:     return succ
+--------------------------------------------------------------------------------
+[0.01257 s] killed by test_successor (tests.CalculatorTest)
+   - [# 187] CRP source:2  : 
+--------------------------------------------------------------------------------
+   1: import collections
+~  2: INT_MAX = 4294967297
+   3: INT_MIN = (-4294967296)
+   4: 
+   5: 
+   6: 
+   7: 
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.00729 s] survived
+   - [# 188] CRP source:3  : 
+--------------------------------------------------------------------------------
+   1: import collections
+   2: INT_MAX = 4294967296
+~  3: INT_MIN = (-4294967297)
+   4: 
+   5: 
+   6: 
+   7: 
+   8: 
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.00592 s] survived
+   - [# 189] CRP source:271: 
+--------------------------------------------------------------------------------
+ 267: 
+ 268: 
+ 269: 
+ 270: class TreeNode:
+~271:     def __init__(self, val=1):
+ 272:         self.val = val
+ 273:         self.left = None
+ 274:         self.right = None
+ 275:     
+ 276:     def __eq__(self, other):
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.00609 s] survived
+   - [# 190] CRP source:352: 
+--------------------------------------------------------------------------------
+ 348:         return []
+ 349:     res = []
+ 350:     queue = [(root, root.val, [root.val])]
+ 351:     while queue:
+~352:         (node, val, ls) = queue.pop(1)
+ 353:         if ((not node.left) and (not node.right) and val == sum):
+ 354:             res.append(ls)
+ 355:         if node.left:
+ 356:             queue.append((node.left, val + node.left.val, ls + [node.left.val]))
+ 357:         if node.right:
+--------------------------------------------------------------------------------
+[0.02086 s] killed by test_pathSum3 (tests.CalculatorTest)
+   - [# 191] CRP source:412: 
+--------------------------------------------------------------------------------
+ 408:     if (not root):
+ 409:         return False
+ 410:     queue = [(root, sum - root.val)]
+ 411:     while queue:
+~412:         (node, val) = queue.pop(1)
+ 413:         if ((not node.left) and (not node.right)):
+ 414:             if val == 0:
+ 415:                 return True
+ 416:         if node.left:
+ 417:             queue.append((node.left, val - node.left.val))
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[0.01331 s] killed by test_pathSum8 (tests.CalculatorTest)
+   - [# 192] CRP source:414: 
+--------------------------------------------------------------------------------
+ 410:     queue = [(root, sum - root.val)]
+ 411:     while queue:
+ 412:         (node, val) = queue.pop(0)
+ 413:         if ((not node.left) and (not node.right)):
+~414:             if val == 1:
+ 415:                 return True
+ 416:         if node.left:
+ 417:             queue.append((node.left, val - node.left.val))
+ 418:         if node.right:
+ 419:             queue.append((node.right, val - node.right.val))
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[0.02453 s] killed by test_pathSum8 (tests.CalculatorTest)
+   - [# 193] CRP source:431: 
+--------------------------------------------------------------------------------
+ 427: 
+ 428: 
+ 429: def max_height(root):
+ 430:     if (not root):
+~431:         return 1
+ 432:     height = 0
+ 433:     queue = [root]
+ 434:     while queue:
+ 435:         height += 1
+ 436:         level = []
+--------------------------------------------------------------------------------
+[0.02260 s] killed by test_isbalanced3 (tests.CalculatorTest)
+   - [# 194] CRP source:432: 
+--------------------------------------------------------------------------------
+ 428: 
+ 429: def max_height(root):
+ 430:     if (not root):
+ 431:         return 0
+~432:     height = 1
+ 433:     queue = [root]
+ 434:     while queue:
+ 435:         height += 1
+ 436:         level = []
+ 437:         while queue:
+--------------------------------------------------------------------------------
+16
+[0.01233 s] killed by test_maxheight (tests.CalculatorTest)
+   - [# 195] CRP source:435: 
+--------------------------------------------------------------------------------
+ 431:         return 0
+ 432:     height = 0
+ 433:     queue = [root]
+ 434:     while queue:
+~435:         height += 2
+ 436:         level = []
+ 437:         while queue:
+ 438:             node = queue.pop(0)
+ 439:             if node.left:
+ 440:                 level.append(node.left)
+--------------------------------------------------------------------------------
+[0.00792 s] killed by test_maxheight (tests.CalculatorTest)
+   - [# 196] CRP source:438: 
+--------------------------------------------------------------------------------
+ 434:     while queue:
+ 435:         height += 1
+ 436:         level = []
+ 437:         while queue:
+~438:             node = queue.pop(1)
+ 439:             if node.left:
+ 440:                 level.append(node.left)
+ 441:             if node.right:
+ 442:                 level.append(node.right)
+ 443:         queue = level
+--------------------------------------------------------------------------------
+16
+[0.00570 s] killed by test_isbalanced3 (tests.CalculatorTest)
+   - [# 197] CRP source:592: 
+--------------------------------------------------------------------------------
+ 588: def is_balanced(root):
+ 589:     
+ 590:     
+ 591:     
+~592:     return (-2) != get_depth(root)
+ 593: 
+ 594: def get_depth(root):
+ 595:     
+ 596:     
+ 597:     
+--------------------------------------------------------------------------------
+16
+[0.01113 s] killed by test_isbalanced (tests.CalculatorTest)
+   - [# 198] CRP source:599: 
+--------------------------------------------------------------------------------
+ 595:     
+ 596:     
+ 597:     
+ 598:     if (not root):
+~599:         return 1
+ 600:     left = get_depth(root.left)
+ 601:     right = get_depth(root.right)
+ 602:     if abs(left - right) > 1:
+ 603:         return (-1)
+ 604:     return 1 + max(left, right)
+--------------------------------------------------------------------------------
+[0.00908 s] survived
+   - [# 199] CRP source:602: 
+--------------------------------------------------------------------------------
+ 598:     if (not root):
+ 599:         return 0
+ 600:     left = get_depth(root.left)
+ 601:     right = get_depth(root.right)
+~602:     if abs(left - right) > 2:
+ 603:         return (-1)
+ 604:     return 1 + max(left, right)
+ 605: 
+ 606: 
+ 607: 
+--------------------------------------------------------------------------------
+16
+[0.02040 s] killed by test_isbalanced (tests.CalculatorTest)
+   - [# 200] CRP source:603: 
+--------------------------------------------------------------------------------
+ 599:         return 0
+ 600:     left = get_depth(root.left)
+ 601:     right = get_depth(root.right)
+ 602:     if abs(left - right) > 1:
+~603:         return (-2)
+ 604:     return 1 + max(left, right)
+ 605: 
+ 606: 
+ 607: 
+ 608: def is_balanced_2(root):
+--------------------------------------------------------------------------------
+16
+[0.01937 s] killed by test_isbalanced (tests.CalculatorTest)
+   - [# 201] CRP source:604: 
+--------------------------------------------------------------------------------
+ 600:     left = get_depth(root.left)
+ 601:     right = get_depth(root.right)
+ 602:     if abs(left - right) > 1:
+ 603:         return (-1)
+~604:     return 2 + max(left, right)
+ 605: 
+ 606: 
+ 607: 
+ 608: def is_balanced_2(root):
+ 609:     
+--------------------------------------------------------------------------------
+16
+[0.00610 s] killed by test_isbalanced (tests.CalculatorTest)
+   - [# 202] CRP source:618: 
+--------------------------------------------------------------------------------
+ 614:     if ((not left) and (not right)):
+ 615:         return True
+ 616:     if ((not left) or (not right)):
+ 617:         return False
+~618:     return (abs(left - right) <= 2 and is_balanced_2(root.left) and is_balanced_2(root.right))
+ 619: 
+ 620: def reverse(root):
+ 621:     if (not root):
+ 622:         return
+ 623:     (root.left, root.right) = (root.right, root.left)
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.00591 s] survived
+   - [# 203] CRP source:644: 
+--------------------------------------------------------------------------------
+ 640: 
+ 641: 
+ 642: class DeepestLeft:
+ 643:     def __init__(self):
+~644:         self.depth = 1
+ 645:         self.Node = None
+ 646: 
+ 647: def find_deepest_left(root, is_left, depth, res):
+ 648:     if (not root):
+ 649:         return
+--------------------------------------------------------------------------------
+[0.01819 s] survived
+   - [# 204] CRP source:653: 
+--------------------------------------------------------------------------------
+ 649:         return
+ 650:     if (is_left and depth > res.depth):
+ 651:         res.depth = depth
+ 652:         res.Node = root
+~653:     find_deepest_left(root.left, True, depth + 2, res)
+ 654:     find_deepest_left(root.right, False, depth + 1, res)
+ 655: 
+ 656: def bintree2list(root):
+ 657:     
+ 658:     
+--------------------------------------------------------------------------------
+16
+[0.01795 s] killed by test_deepestleft (tests.CalculatorTest)
+   - [# 205] CRP source:654: 
+--------------------------------------------------------------------------------
+ 650:     if (is_left and depth > res.depth):
+ 651:         res.depth = depth
+ 652:         res.Node = root
+ 653:     find_deepest_left(root.left, True, depth + 1, res)
+~654:     find_deepest_left(root.right, False, depth + 2, res)
+ 655: 
+ 656: def bintree2list(root):
+ 657:     
+ 658:     
+ 659:     
+--------------------------------------------------------------------------------
+16
+[0.00850 s] killed by test_deepestleft (tests.CalculatorTest)
+   - [# 206] CRP source:778: 
+--------------------------------------------------------------------------------
+ 774:     res = []
+ 775:     if (not root):
+ 776:         return res
+ 777:     level = [root]
+~778:     flag = 2
+ 779:     while level:
+ 780:         current = []
+ 781:         new_level = []
+ 782:         for node in level:
+ 783:             current.append(node.val)
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8], [11, 4], [1, 2]]
+[0.00734 s] killed by test_zigzagorder (tests.CalculatorTest)
+   - [# 207] CRP source:790: 
+--------------------------------------------------------------------------------
+ 786:             if node.right:
+ 787:                 new_level.append(node.right)
+ 788:         level = new_level
+ 789:         res.append(current[::flag])
+~790:         flag *= (-2)
+ 791:     return res
+ 792: 
+ 793: 
+ 794: 
+ 795: 
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8], [11], [1]]
+[0.00832 s] killed by test_zigzagorder (tests.CalculatorTest)
+   - [# 208] CRP source:799: 
+--------------------------------------------------------------------------------
+ 795: 
+ 796: def array2bst(nums):
+ 797:     if (not nums):
+ 798:         return None
+~799:     mid = len(nums) // 3
+ 800:     node = TreeNode(nums[mid])
+ 801:     node.left = array2bst(nums[:mid])
+ 802:     node.right = array2bst(nums[mid + 1:])
+ 803:     return node
+ 804: 
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.02256 s] survived
+   - [# 209] CRP source:802: 
+--------------------------------------------------------------------------------
+ 798:         return None
+ 799:     mid = len(nums) // 2
+ 800:     node = TreeNode(nums[mid])
+ 801:     node.left = array2bst(nums[:mid])
+~802:     node.right = array2bst(nums[mid + 2:])
+ 803:     return node
+ 804: 
+ 805: 
+ 806: 
+ 807: 
+--------------------------------------------------------------------------------
+[0.00532 s] killed by test_array2bst (tests.CalculatorTest)
+   - [# 210] CRP source:865: 
+--------------------------------------------------------------------------------
+ 861:     
+ 862:     if (node.val < mini or node.val > maxi):
+ 863:         return False
+ 864:     
+~865:     return (isBSTUtil(node.left, mini, node.val - 2) and 
+ 866:     isBSTUtil(node.right, node.val + 1, maxi))
+ 867: 
+ 868: def num_trees(n):
+ 869:     
+ 870:     
+--------------------------------------------------------------------------------
+16
+[0.00776 s] killed by test_isbst (tests.CalculatorTest)
+   - [# 211] CRP source:866: 
+--------------------------------------------------------------------------------
+ 862:     if (node.val < mini or node.val > maxi):
+ 863:         return False
+ 864:     
+ 865:     return (isBSTUtil(node.left, mini, node.val - 1) and 
+~866:     isBSTUtil(node.right, node.val + 2, maxi))
+ 867: 
+ 868: def num_trees(n):
+ 869:     
+ 870:     
+ 871:     
+--------------------------------------------------------------------------------
+16
+[0.00708 s] killed by test_isbst (tests.CalculatorTest)
+   - [# 212] CRP source:873: 
+--------------------------------------------------------------------------------
+ 869:     
+ 870:     
+ 871:     
+ 872:     
+~873:     dp = [1] * n + 1
+ 874:     dp[0] = 1
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+ 878:             dp[i] += dp[i - j] * dp[j - 1]
+--------------------------------------------------------------------------------
+16
+104
+[0.00596 s] killed by test_numtrees (tests.CalculatorTest)
+   - [# 213] CRP source:873: 
+--------------------------------------------------------------------------------
+ 869:     
+ 870:     
+ 871:     
+ 872:     
+~873:     dp = [0] * n + 2
+ 874:     dp[0] = 1
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+ 878:             dp[i] += dp[i - j] * dp[j - 1]
+--------------------------------------------------------------------------------
+16
+0
+[0.00605 s] killed by test_numtrees (tests.CalculatorTest)
+   - [# 214] CRP source:874: 
+--------------------------------------------------------------------------------
+ 870:     
+ 871:     
+ 872:     
+ 873:     dp = [0] * n + 1
+~874:     dp[1] = 1
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+ 878:             dp[i] += dp[i - j] * dp[j - 1]
+ 879:     return dp[(-1)]
+--------------------------------------------------------------------------------
+16
+2
+[0.00670 s] killed by test_numtrees (tests.CalculatorTest)
+   - [# 215] CRP source:874: 
+--------------------------------------------------------------------------------
+ 870:     
+ 871:     
+ 872:     
+ 873:     dp = [0] * n + 1
+~874:     dp[0] = 2
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+ 878:             dp[i] += dp[i - j] * dp[j - 1]
+ 879:     return dp[(-1)]
+--------------------------------------------------------------------------------
+[0.01466 s] killed by test_numtrees (tests.CalculatorTest)
+   - [# 216] CRP source:875: 
+--------------------------------------------------------------------------------
+ 871:     
+ 872:     
+ 873:     dp = [0] * n + 1
+ 874:     dp[0] = 1
+~875:     dp[2] = 1
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+ 878:             dp[i] += dp[i - j] * dp[j - 1]
+ 879:     return dp[(-1)]
+ 880: 
+--------------------------------------------------------------------------------
+16
+9
+[0.01669 s] killed by test_numtrees (tests.CalculatorTest)
+   - [# 217] CRP source:875: 
+--------------------------------------------------------------------------------
+ 871:     
+ 872:     
+ 873:     dp = [0] * n + 1
+ 874:     dp[0] = 1
+~875:     dp[1] = 2
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+ 878:             dp[i] += dp[i - j] * dp[j - 1]
+ 879:     return dp[(-1)]
+ 880: 
+--------------------------------------------------------------------------------
+[0.00779 s] killed by test_numtrees (tests.CalculatorTest)
+   - [# 218] CRP source:876: 
+--------------------------------------------------------------------------------
+ 872:     
+ 873:     dp = [0] * n + 1
+ 874:     dp[0] = 1
+ 875:     dp[1] = 1
+~876:     for i in range(3, n + 1):
+ 877:         for j in range(i + 1):
+ 878:             dp[i] += dp[i - j] * dp[j - 1]
+ 879:     return dp[(-1)]
+ 880: 
+ 881: def successor(root, node):
+--------------------------------------------------------------------------------
+16
+6
+[0.00724 s] killed by test_numtrees (tests.CalculatorTest)
+   - [# 219] CRP source:876: 
+--------------------------------------------------------------------------------
+ 872:     
+ 873:     dp = [0] * n + 1
+ 874:     dp[0] = 1
+ 875:     dp[1] = 1
+~876:     for i in range(2, n + 2):
+ 877:         for j in range(i + 1):
+ 878:             dp[i] += dp[i - j] * dp[j - 1]
+ 879:     return dp[(-1)]
+ 880: 
+ 881: def successor(root, node):
+--------------------------------------------------------------------------------
+16
+[0.00892 s] killed by test_numtrees (tests.CalculatorTest)
+   - [# 220] CRP source:877: 
+--------------------------------------------------------------------------------
+ 873:     dp = [0] * n + 1
+ 874:     dp[0] = 1
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+~877:         for j in range(i + 2):
+ 878:             dp[i] += dp[i - j] * dp[j - 1]
+ 879:     return dp[(-1)]
+ 880: 
+ 881: def successor(root, node):
+ 882:     succ = None
+--------------------------------------------------------------------------------
+16
+1806
+[0.00740 s] killed by test_numtrees (tests.CalculatorTest)
+   - [# 221] CRP source:878: 
+--------------------------------------------------------------------------------
+ 874:     dp[0] = 1
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+~878:             dp[i] += dp[i - j] * dp[j - 2]
+ 879:     return dp[(-1)]
+ 880: 
+ 881: def successor(root, node):
+ 882:     succ = None
+ 883:     while root:
+--------------------------------------------------------------------------------
+16
+6
+[0.00581 s] killed by test_numtrees (tests.CalculatorTest)
+   - [# 222] CRP source:879: 
+--------------------------------------------------------------------------------
+ 875:     dp[1] = 1
+ 876:     for i in range(2, n + 1):
+ 877:         for j in range(i + 1):
+ 878:             dp[i] += dp[i - j] * dp[j - 1]
+~879:     return dp[(-2)]
+ 880: 
+ 881: def successor(root, node):
+ 882:     succ = None
+ 883:     while root:
+ 884:         if node.val < root.val:
+--------------------------------------------------------------------------------
+16
+14
+[0.00602 s] killed by test_numtrees (tests.CalculatorTest)
+   - [# 223] LCR source:277: 
+--------------------------------------------------------------------------------
+ 273:         self.left = None
+ 274:         self.right = None
+ 275:     
+ 276:     def __eq__(self, other):
+~277:         return (self.val == other.val or self.left == other.left or self.right == other.right)
+ 278: 
+ 279: 
+ 280: 
+ 281: 
+ 282: 
+--------------------------------------------------------------------------------
+[0.01022 s] survived
+   - [# 224] LCR source:286: 
+--------------------------------------------------------------------------------
+ 282: 
+ 283: 
+ 284: 
+ 285: def isSameTree(p, q):
+~286:     if ((not p) or (not q)):
+ 287:         return True
+ 288:     if (p and q and p.val == q.val):
+ 289:         return (isSameTree(p.left, q.left) and isSameTree(p.right, q.right))
+ 290:     return False
+ 291: 
+--------------------------------------------------------------------------------
+[0.01956 s] survived
+   - [# 225] LCR source:288: 
+--------------------------------------------------------------------------------
+ 284: 
+ 285: def isSameTree(p, q):
+ 286:     if ((not p) and (not q)):
+ 287:         return True
+~288:     if (p or q or p.val == q.val):
+ 289:         return (isSameTree(p.left, q.left) and isSameTree(p.right, q.right))
+ 290:     return False
+ 291: 
+ 292: 
+ 293: 
+--------------------------------------------------------------------------------
+16
+[0.01533 s] killed by test_isSameTree_False (tests.CalculatorTest)
+   - [# 226] LCR source:289: 
+--------------------------------------------------------------------------------
+ 285: def isSameTree(p, q):
+ 286:     if ((not p) and (not q)):
+ 287:         return True
+ 288:     if (p and q and p.val == q.val):
+~289:         return (isSameTree(p.left, q.left) or isSameTree(p.right, q.right))
+ 290:     return False
+ 291: 
+ 292: 
+ 293: 
+ 294: 
+--------------------------------------------------------------------------------
+16
+[0.00751 s] killed by test_isSameTree_False (tests.CalculatorTest)
+   - [# 227] LCR source:319: 
+--------------------------------------------------------------------------------
+ 315:     DFS(root, sum, [], res)
+ 316:     return res
+ 317: 
+ 318: def DFS(root, sum, ls, res):
+~319:     if ((not root.left) or (not root.right) or root.val == sum):
+ 320:         ls.append(root.val)
+ 321:         res.append(ls)
+ 322:     if root.left:
+ 323:         DFS(root.left, sum - root.val, ls + [root.val], res)
+ 324:     if root.right:
+--------------------------------------------------------------------------------
+16
+42
+[0.00906 s] killed by test_pathSum (tests.CalculatorTest)
+   - [# 228] LCR source:336: 
+--------------------------------------------------------------------------------
+ 332:     res = []
+ 333:     stack = [(root, [root.val])]
+ 334:     while stack:
+ 335:         (node, ls) = stack.pop()
+~336:         if ((not node.left) or (not node.right) or sum(ls) == s):
+ 337:             res.append(ls)
+ 338:         if node.left:
+ 339:             stack.append((node.left, ls + [node.left.val]))
+ 340:         if node.right:
+ 341:             stack.append((node.right, ls + [node.right.val]))
+--------------------------------------------------------------------------------
+16
+42
+[0.00841 s] killed by test_pathSum2 (tests.CalculatorTest)
+   - [# 229] LCR source:353: 
+--------------------------------------------------------------------------------
+ 349:     res = []
+ 350:     queue = [(root, root.val, [root.val])]
+ 351:     while queue:
+ 352:         (node, val, ls) = queue.pop(0)
+~353:         if ((not node.left) or (not node.right) or val == sum):
+ 354:             res.append(ls)
+ 355:         if node.left:
+ 356:             queue.append((node.left, val + node.left.val, ls + [node.left.val]))
+ 357:         if node.right:
+ 358:             queue.append((node.right, val + node.right.val, ls + [node.right.val]))
+--------------------------------------------------------------------------------
+16
+42
+[0.00610 s] killed by test_pathSum3 (tests.CalculatorTest)
+   - [# 230] LCR source:383: 
+--------------------------------------------------------------------------------
+ 379:     
+ 380:     
+ 381:     if (not root):
+ 382:         return False
+~383:     if ((not root.left) or (not root.right) or root.val == sum):
+ 384:         return True
+ 385:     sum -= root.val
+ 386:     return (has_path_sum(root.left, sum) or has_path_sum(root.right, sum))
+ 387: 
+ 388: 
+--------------------------------------------------------------------------------
+16
+42
+True
+[0.00668 s] killed by test_pathSum5 (tests.CalculatorTest)
+   - [# 231] LCR source:386: 
+--------------------------------------------------------------------------------
+ 382:         return False
+ 383:     if ((not root.left) and (not root.right) and root.val == sum):
+ 384:         return True
+ 385:     sum -= root.val
+~386:     return (has_path_sum(root.left, sum) and has_path_sum(root.right, sum))
+ 387: 
+ 388: 
+ 389: 
+ 390: def has_path_sum2(root, sum):
+ 391:     if (not root):
+--------------------------------------------------------------------------------
+16
+42
+False
+[0.00576 s] killed by test_pathSum4 (tests.CalculatorTest)
+   - [# 232] LCR source:396: 
+--------------------------------------------------------------------------------
+ 392:         return False
+ 393:     stack = [(root, root.val)]
+ 394:     while stack:
+ 395:         (node, val) = stack.pop()
+~396:         if ((not node.left) or (not node.right)):
+ 397:             if val == sum:
+ 398:                 return True
+ 399:         if node.left:
+ 400:             stack.append((node.left, val + node.left.val))
+ 401:         if node.right:
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.02309 s] survived
+   - [# 233] LCR source:413: 
+--------------------------------------------------------------------------------
+ 409:         return False
+ 410:     queue = [(root, sum - root.val)]
+ 411:     while queue:
+ 412:         (node, val) = queue.pop(0)
+~413:         if ((not node.left) or (not node.right)):
+ 414:             if val == 0:
+ 415:                 return True
+ 416:         if node.left:
+ 417:             queue.append((node.left, val - node.left.val))
+ 418:         if node.right:
+--------------------------------------------------------------------------------
+[0.02030 s] survived
+   - [# 234] LCR source:473: 
+--------------------------------------------------------------------------------
+ 469:     
+ 470:     
+ 471:     
+ 472:     
+~473:     if ((not root) and root is p and root is q):
+ 474:         return root
+ 475:     left = LCA(root.left, p, q)
+ 476:     right = LCA(root.right, p, q)
+ 477:     if (left and right):
+ 478:         return root
+--------------------------------------------------------------------------------
+[0.00503 s] killed by test_LCA (tests.CalculatorTest)
+   - [# 235] LCR source:477: 
+--------------------------------------------------------------------------------
+ 473:     if ((not root) or root is p or root is q):
+ 474:         return root
+ 475:     left = LCA(root.left, p, q)
+ 476:     right = LCA(root.right, p, q)
+~477:     if (left or right):
+ 478:         return root
+ 479:     return left if left else right
+ 480: 
+ 481: 
+ 482: 
+--------------------------------------------------------------------------------
+[0.00480 s] killed by test_LCA (tests.CalculatorTest)
+   - [# 236] LCR source:506: 
+--------------------------------------------------------------------------------
+ 502:     return helper(root.left, root.right)
+ 503: 
+ 504: 
+ 505: def helper(p, q):
+~506:     if ((not p) or (not q)):
+ 507:         return True
+ 508:     if ((not p) or (not q) or q.val != p.val):
+ 509:         return False
+ 510:     return (helper(p.left, q.right) and helper(p.right, q.left))
+ 511: 
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.00575 s] survived
+   - [# 237] LCR source:508: 
+--------------------------------------------------------------------------------
+ 504: 
+ 505: def helper(p, q):
+ 506:     if ((not p) and (not q)):
+ 507:         return True
+~508:     if ((not p) and (not q) and q.val != p.val):
+ 509:         return False
+ 510:     return (helper(p.left, q.right) and helper(p.right, q.left))
+ 511: 
+ 512: 
+ 513: def is_symmetric_iterative(root):
+--------------------------------------------------------------------------------
+16
+[0.00573 s] killed by test_issymmetric (tests.CalculatorTest)
+   - [# 238] LCR source:510: 
+--------------------------------------------------------------------------------
+ 506:     if ((not p) and (not q)):
+ 507:         return True
+ 508:     if ((not p) or (not q) or q.val != p.val):
+ 509:         return False
+~510:     return (helper(p.left, q.right) or helper(p.right, q.left))
+ 511: 
+ 512: 
+ 513: def is_symmetric_iterative(root):
+ 514:     if (not root):
+ 515:         return True
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.00905 s] survived
+   - [# 239] LCR source:519: 
+--------------------------------------------------------------------------------
+ 515:         return True
+ 516:     stack = [[root.left, root.right]]
+ 517:     while stack:
+ 518:         (left, right) = stack.pop()
+~519:         if ((not left) or (not right)):
+ 520:             continue
+ 521:         if ((not left) or (not right)):
+ 522:             return False
+ 523:         if left.val == right.val:
+ 524:             stack.append([left.left, right.right])
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.02241 s] survived
+   - [# 240] LCR source:521: 
+--------------------------------------------------------------------------------
+ 517:     while stack:
+ 518:         (left, right) = stack.pop()
+ 519:         if ((not left) and (not right)):
+ 520:             continue
+~521:         if ((not left) and (not right)):
+ 522:             return False
+ 523:         if left.val == right.val:
+ 524:             stack.append([left.left, right.right])
+ 525:             stack.append([left.right, right.right])
+ 526:         else:
+--------------------------------------------------------------------------------
+[0.00990 s] survived
+   - [# 241] LCR source:566: 
+--------------------------------------------------------------------------------
+ 562:             queue.append(node.right)
+ 563:     return flag
+ 564: 
+ 565: def comp(p, q):
+~566:     if ((not p) or (not q)):
+ 567:         return True
+ 568:     if (p and q):
+ 569:         return (p.val == q.val and comp(p.left, q.left) and comp(p.right, q.right))
+ 570:     return False
+ 571: 
+--------------------------------------------------------------------------------
+16
+[0.02269 s] killed by test_issubtree2 (tests.CalculatorTest)
+   - [# 242] LCR source:568: 
+--------------------------------------------------------------------------------
+ 564: 
+ 565: def comp(p, q):
+ 566:     if ((not p) and (not q)):
+ 567:         return True
+~568:     if (p or q):
+ 569:         return (p.val == q.val and comp(p.left, q.left) and comp(p.right, q.right))
+ 570:     return False
+ 571: 
+ 572: 
+ 573: 
+--------------------------------------------------------------------------------
+16
+[0.01199 s] killed by test_issubtree2 (tests.CalculatorTest)
+   - [# 243] LCR source:569: 
+--------------------------------------------------------------------------------
+ 565: def comp(p, q):
+ 566:     if ((not p) and (not q)):
+ 567:         return True
+ 568:     if (p and q):
+~569:         return (p.val == q.val or comp(p.left, q.left) or comp(p.right, q.right))
+ 570:     return False
+ 571: 
+ 572: 
+ 573: 
+ 574: 
+--------------------------------------------------------------------------------
+[0.00767 s] killed by test_issubtree2 (tests.CalculatorTest)
+   - [# 244] LCR source:614: 
+--------------------------------------------------------------------------------
+ 610:     
+ 611:     
+ 612:     left = max_height(root.left)
+ 613:     right = max_height(root.right)
+~614:     if ((not left) or (not right)):
+ 615:         return True
+ 616:     if ((not left) or (not right)):
+ 617:         return False
+ 618:     return (abs(left - right) <= 1 and is_balanced_2(root.left) and is_balanced_2(root.right))
+ 619: 
+--------------------------------------------------------------------------------
+16
+[0.00560 s] killed by test_isbalanced3 (tests.CalculatorTest)
+   - [# 245] LCR source:616: 
+--------------------------------------------------------------------------------
+ 612:     left = max_height(root.left)
+ 613:     right = max_height(root.right)
+ 614:     if ((not left) and (not right)):
+ 615:         return True
+~616:     if ((not left) and (not right)):
+ 617:         return False
+ 618:     return (abs(left - right) <= 1 and is_balanced_2(root.left) and is_balanced_2(root.right))
+ 619: 
+ 620: def reverse(root):
+ 621:     if (not root):
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.00580 s] survived
+   - [# 246] LCR source:618: 
+--------------------------------------------------------------------------------
+ 614:     if ((not left) and (not right)):
+ 615:         return True
+ 616:     if ((not left) or (not right)):
+ 617:         return False
+~618:     return (abs(left - right) <= 1 or is_balanced_2(root.left) or is_balanced_2(root.right))
+ 619: 
+ 620: def reverse(root):
+ 621:     if (not root):
+ 622:         return
+ 623:     (root.left, root.right) = (root.right, root.left)
+--------------------------------------------------------------------------------
+16
+[0.00534 s] killed by test_isbalanced3 (tests.CalculatorTest)
+   - [# 247] LCR source:650: 
+--------------------------------------------------------------------------------
+ 646: 
+ 647: def find_deepest_left(root, is_left, depth, res):
+ 648:     if (not root):
+ 649:         return
+~650:     if (is_left or depth > res.depth):
+ 651:         res.depth = depth
+ 652:         res.Node = root
+ 653:     find_deepest_left(root.left, True, depth + 1, res)
+ 654:     find_deepest_left(root.right, False, depth + 1, res)
+ 655: 
+--------------------------------------------------------------------------------
+16
+[0.01957 s] killed by test_deepestleft (tests.CalculatorTest)
+   - [# 248] LCR source:708: 
+--------------------------------------------------------------------------------
+ 704:     res = []
+ 705:     if (not root):
+ 706:         return res
+ 707:     stack = []
+~708:     while (root and stack):
+ 709:         while root:
+ 710:             stack.append(root)
+ 711:             root = root.left
+ 712:         root = stack.pop()
+ 713:         res.append(root.val)
+--------------------------------------------------------------------------------
+[0.00895 s] killed by test_inorder (tests.CalculatorTest)
+   - [# 249] LCR source:862: 
+--------------------------------------------------------------------------------
+ 858:     
+ 859:     if node is None:
+ 860:         return True
+ 861:     
+~862:     if (node.val < mini and node.val > maxi):
+ 863:         return False
+ 864:     
+ 865:     return (isBSTUtil(node.left, mini, node.val - 1) and 
+ 866:     isBSTUtil(node.right, node.val + 1, maxi))
+ 867: 
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[[5], [8, 4], [11, 13, 4], [1, 5, 2, 7]]
+[0.00665 s] survived
+   - [# 250] LCR source:865: 
+--------------------------------------------------------------------------------
+ 861:     
+ 862:     if (node.val < mini or node.val > maxi):
+ 863:         return False
+ 864:     
+~865:     return (isBSTUtil(node.left, mini, node.val - 1) or 
+ 866:     isBSTUtil(node.right, node.val + 1, maxi))
+ 867: 
+ 868: def num_trees(n):
+ 869:     
+ 870:     
+--------------------------------------------------------------------------------
+16
+[0.00555 s] killed by test_isbst2 (tests.CalculatorTest)
+   - [# 251] ROR source:277: 
+--------------------------------------------------------------------------------
+ 273:         self.left = None
+ 274:         self.right = None
+ 275:     
+ 276:     def __eq__(self, other):
+~277:         return (self.val != other.val and self.left == other.left and self.right == other.right)
+ 278: 
+ 279: 
+ 280: 
+ 281: 
+ 282: 
+--------------------------------------------------------------------------------
+[0.01760 s] killed by test_LCA (tests.CalculatorTest)
+   - [# 252] ROR source:277: 
+--------------------------------------------------------------------------------
+ 273:         self.left = None
+ 274:         self.right = None
+ 275:     
+ 276:     def __eq__(self, other):
+~277:         return (self.val == other.val and self.left != other.left and self.right == other.right)
+ 278: 
+ 279: 
+ 280: 
+ 281: 
+ 282: 
+--------------------------------------------------------------------------------
+[0.00633 s] killed by test_LCA (tests.CalculatorTest)
+   - [# 253] ROR source:277: 
+--------------------------------------------------------------------------------
+ 273:         self.left = None
+ 274:         self.right = None
+ 275:     
+ 276:     def __eq__(self, other):
+~277:         return (self.val == other.val and self.left == other.left and self.right != other.right)
+ 278: 
+ 279: 
+ 280: 
+ 281: 
+ 282: 
+--------------------------------------------------------------------------------
+[0.00570 s] killed by test_LCA (tests.CalculatorTest)
+   - [# 254] ROR source:288: 
+--------------------------------------------------------------------------------
+ 284: 
+ 285: def isSameTree(p, q):
+ 286:     if ((not p) and (not q)):
+ 287:         return True
+~288:     if (p and q and p.val != q.val):
+ 289:         return (isSameTree(p.left, q.left) and isSameTree(p.right, q.right))
+ 290:     return False
+ 291: 
+ 292: 
+ 293: 
+--------------------------------------------------------------------------------
+[0.02747 s] killed by test_isSameTree (tests.CalculatorTest)
+   - [# 255] ROR source:319: 
+--------------------------------------------------------------------------------
+ 315:     DFS(root, sum, [], res)
+ 316:     return res
+ 317: 
+ 318: def DFS(root, sum, ls, res):
+~319:     if ((not root.left) and (not root.right) and root.val != sum):
+ 320:         ls.append(root.val)
+ 321:         res.append(ls)
+ 322:     if root.left:
+ 323:         DFS(root.left, sum - root.val, ls + [root.val], res)
+ 324:     if root.right:
+--------------------------------------------------------------------------------
+[0.03079 s] killed by test_pathSum (tests.CalculatorTest)
+   - [# 256] ROR source:336: 
+--------------------------------------------------------------------------------
+ 332:     res = []
+ 333:     stack = [(root, [root.val])]
+ 334:     while stack:
+ 335:         (node, ls) = stack.pop()
+~336:         if ((not node.left) and (not node.right) and sum(ls) != s):
+ 337:             res.append(ls)
+ 338:         if node.left:
+ 339:             stack.append((node.left, ls + [node.left.val]))
+ 340:         if node.right:
+ 341:             stack.append((node.right, ls + [node.right.val]))
+--------------------------------------------------------------------------------
+[0.01143 s] killed by test_pathSum2 (tests.CalculatorTest)
+   - [# 257] ROR source:353: 
+--------------------------------------------------------------------------------
+ 349:     res = []
+ 350:     queue = [(root, root.val, [root.val])]
+ 351:     while queue:
+ 352:         (node, val, ls) = queue.pop(0)
+~353:         if ((not node.left) and (not node.right) and val != sum):
+ 354:             res.append(ls)
+ 355:         if node.left:
+ 356:             queue.append((node.left, val + node.left.val, ls + [node.left.val]))
+ 357:         if node.right:
+ 358:             queue.append((node.right, val + node.right.val, ls + [node.right.val]))
+--------------------------------------------------------------------------------
+[0.03656 s] killed by test_pathSum3 (tests.CalculatorTest)
+   - [# 258] ROR source:383: 
+--------------------------------------------------------------------------------
+ 379:     
+ 380:     
+ 381:     if (not root):
+ 382:         return False
+~383:     if ((not root.left) and (not root.right) and root.val != sum):
+ 384:         return True
+ 385:     sum -= root.val
+ 386:     return (has_path_sum(root.left, sum) or has_path_sum(root.right, sum))
+ 387: 
+ 388: 
+--------------------------------------------------------------------------------
+16
+42
+True
+[0.01568 s] killed by test_pathSum5 (tests.CalculatorTest)
+   - [# 259] ROR source:397: 
+--------------------------------------------------------------------------------
+ 393:     stack = [(root, root.val)]
+ 394:     while stack:
+ 395:         (node, val) = stack.pop()
+ 396:         if ((not node.left) and (not node.right)):
+~397:             if val != sum:
+ 398:                 return True
+ 399:         if node.left:
+ 400:             stack.append((node.left, val + node.left.val))
+ 401:         if node.right:
+ 402:             stack.append((node.right, val + node.right.val))
+--------------------------------------------------------------------------------
+[0.02316 s] killed by test_pathSum7 (tests.CalculatorTest)
+   - [# 260] ROR source:414: 
+--------------------------------------------------------------------------------
+ 410:     queue = [(root, sum - root.val)]
+ 411:     while queue:
+ 412:         (node, val) = queue.pop(0)
+ 413:         if ((not node.left) and (not node.right)):
+~414:             if val != 0:
+ 415:                 return True
+ 416:         if node.left:
+ 417:             queue.append((node.left, val - node.left.val))
+ 418:         if node.right:
+ 419:             queue.append((node.right, val - node.right.val))
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[0.03913 s] killed by test_pathSum9 (tests.CalculatorTest)
+   - [# 261] ROR source:508: 
+--------------------------------------------------------------------------------
+ 504: 
+ 505: def helper(p, q):
+ 506:     if ((not p) and (not q)):
+ 507:         return True
+~508:     if ((not p) or (not q) or q.val == p.val):
+ 509:         return False
+ 510:     return (helper(p.left, q.right) and helper(p.right, q.left))
+ 511: 
+ 512: 
+ 513: def is_symmetric_iterative(root):
+--------------------------------------------------------------------------------
+16
+[0.01122 s] killed by test_issymmetric2 (tests.CalculatorTest)
+   - [# 262] ROR source:523: 
+--------------------------------------------------------------------------------
+ 519:         if ((not left) and (not right)):
+ 520:             continue
+ 521:         if ((not left) or (not right)):
+ 522:             return False
+~523:         if left.val != right.val:
+ 524:             stack.append([left.left, right.right])
+ 525:             stack.append([left.right, right.right])
+ 526:         else:
+ 527:             return False
+ 528:     return True
+--------------------------------------------------------------------------------
+16
+[0.01041 s] killed by test_issymmetric4 (tests.CalculatorTest)
+   - [# 263] ROR source:557: 
+--------------------------------------------------------------------------------
+ 553:     queue = collections.deque()
+ 554:     queue.append(big)
+ 555:     while queue:
+ 556:         node = queue.popleft()
+~557:         if node.val != small.val:
+ 558:             flag = comp(node, small)
+ 559:             break
+ 560:         else:
+ 561:             queue.append(node.left)
+ 562:             queue.append(node.right)
+--------------------------------------------------------------------------------
+[0.00674 s] killed by test_issubtree (tests.CalculatorTest)
+   - [# 264] ROR source:569: 
+--------------------------------------------------------------------------------
+ 565: def comp(p, q):
+ 566:     if ((not p) and (not q)):
+ 567:         return True
+ 568:     if (p and q):
+~569:         return (p.val != q.val and comp(p.left, q.left) and comp(p.right, q.right))
+ 570:     return False
+ 571: 
+ 572: 
+ 573: 
+ 574: 
+--------------------------------------------------------------------------------
+16
+[0.00728 s] killed by test_issubtree (tests.CalculatorTest)
+   - [# 265] ROR source:592: 
+--------------------------------------------------------------------------------
+ 588: def is_balanced(root):
+ 589:     
+ 590:     
+ 591:     
+~592:     return (-1) == get_depth(root)
+ 593: 
+ 594: def get_depth(root):
+ 595:     
+ 596:     
+ 597:     
+--------------------------------------------------------------------------------
+16
+[0.00585 s] killed by test_isbalanced (tests.CalculatorTest)
+   - [# 266] ROR source:602: 
+--------------------------------------------------------------------------------
+ 598:     if (not root):
+ 599:         return 0
+ 600:     left = get_depth(root.left)
+ 601:     right = get_depth(root.right)
+~602:     if abs(left - right) < 1:
+ 603:         return (-1)
+ 604:     return 1 + max(left, right)
+ 605: 
+ 606: 
+ 607: 
+--------------------------------------------------------------------------------
+[0.00652 s] killed by test_isbalanced (tests.CalculatorTest)
+   - [# 267] ROR source:602: 
+--------------------------------------------------------------------------------
+ 598:     if (not root):
+ 599:         return 0
+ 600:     left = get_depth(root.left)
+ 601:     right = get_depth(root.right)
+~602:     if abs(left - right) >= 1:
+ 603:         return (-1)
+ 604:     return 1 + max(left, right)
+ 605: 
+ 606: 
+ 607: 
+--------------------------------------------------------------------------------
+16
+[0.00700 s] killed by test_isbalanced (tests.CalculatorTest)
+   - [# 268] ROR source:618: 
+--------------------------------------------------------------------------------
+ 614:     if ((not left) and (not right)):
+ 615:         return True
+ 616:     if ((not left) or (not right)):
+ 617:         return False
+~618:     return (abs(left - right) >= 1 and is_balanced_2(root.left) and is_balanced_2(root.right))
+ 619: 
+ 620: def reverse(root):
+ 621:     if (not root):
+ 622:         return
+ 623:     (root.left, root.right) = (root.right, root.left)
+--------------------------------------------------------------------------------
+16
+[0.00701 s] killed by test_isbalanced4 (tests.CalculatorTest)
+   - [# 269] ROR source:618: 
+--------------------------------------------------------------------------------
+ 614:     if ((not left) and (not right)):
+ 615:         return True
+ 616:     if ((not left) or (not right)):
+ 617:         return False
+~618:     return (abs(left - right) < 1 and is_balanced_2(root.left) and is_balanced_2(root.right))
+ 619: 
+ 620: def reverse(root):
+ 621:     if (not root):
+ 622:         return
+ 623:     (root.left, root.right) = (root.right, root.left)
+--------------------------------------------------------------------------------
+[0.00995 s] survived
+   - [# 270] ROR source:650: 
+--------------------------------------------------------------------------------
+ 646: 
+ 647: def find_deepest_left(root, is_left, depth, res):
+ 648:     if (not root):
+ 649:         return
+~650:     if (is_left and depth < res.depth):
+ 651:         res.depth = depth
+ 652:         res.Node = root
+ 653:     find_deepest_left(root.left, True, depth + 1, res)
+ 654:     find_deepest_left(root.right, False, depth + 1, res)
+ 655: 
+--------------------------------------------------------------------------------
+16
+[0.00691 s] killed by test_deepestleft (tests.CalculatorTest)
+   - [# 271] ROR source:650: 
+--------------------------------------------------------------------------------
+ 646: 
+ 647: def find_deepest_left(root, is_left, depth, res):
+ 648:     if (not root):
+ 649:         return
+~650:     if (is_left and depth >= res.depth):
+ 651:         res.depth = depth
+ 652:         res.Node = root
+ 653:     find_deepest_left(root.left, True, depth + 1, res)
+ 654:     find_deepest_left(root.right, False, depth + 1, res)
+ 655: 
+--------------------------------------------------------------------------------
+16
+[0.00659 s] killed by test_deepestleft (tests.CalculatorTest)
+   - [# 272] ROR source:826: 
+--------------------------------------------------------------------------------
+ 822:     
+ 823:     
+ 824:     
+ 825:     a = root.val
+~826:     kid = root.left if target > a else root.right
+ 827:     if (not kid):
+ 828:         return a
+ 829:     b = closest_value(kid, target)
+ 830:     return min((a, b), key=lambda x: abs(target - x))
+ 831: 
+--------------------------------------------------------------------------------
+8
+[0.01183 s] killed by test_closestvalue (tests.CalculatorTest)
+   - [# 273] ROR source:826: 
+--------------------------------------------------------------------------------
+ 822:     
+ 823:     
+ 824:     
+ 825:     a = root.val
+~826:     kid = root.left if target <= a else root.right
+ 827:     if (not kid):
+ 828:         return a
+ 829:     b = closest_value(kid, target)
+ 830:     return min((a, b), key=lambda x: abs(target - x))
+ 831: 
+--------------------------------------------------------------------------------
+[0.00916 s] survived
+   - [# 274] ROR source:862: 
+--------------------------------------------------------------------------------
+ 858:     
+ 859:     if node is None:
+ 860:         return True
+ 861:     
+~862:     if (node.val > mini or node.val > maxi):
+ 863:         return False
+ 864:     
+ 865:     return (isBSTUtil(node.left, mini, node.val - 1) and 
+ 866:     isBSTUtil(node.right, node.val + 1, maxi))
+ 867: 
+--------------------------------------------------------------------------------
+16
+[0.01748 s] killed by test_isbst (tests.CalculatorTest)
+   - [# 275] ROR source:862: 
+--------------------------------------------------------------------------------
+ 858:     
+ 859:     if node is None:
+ 860:         return True
+ 861:     
+~862:     if (node.val <= mini or node.val > maxi):
+ 863:         return False
+ 864:     
+ 865:     return (isBSTUtil(node.left, mini, node.val - 1) and 
+ 866:     isBSTUtil(node.right, node.val + 1, maxi))
+ 867: 
+--------------------------------------------------------------------------------
+16
+[0.01125 s] killed by test_isbst (tests.CalculatorTest)
+   - [# 276] ROR source:862: 
+--------------------------------------------------------------------------------
+ 858:     
+ 859:     if node is None:
+ 860:         return True
+ 861:     
+~862:     if (node.val < mini or node.val < maxi):
+ 863:         return False
+ 864:     
+ 865:     return (isBSTUtil(node.left, mini, node.val - 1) and 
+ 866:     isBSTUtil(node.right, node.val + 1, maxi))
+ 867: 
+--------------------------------------------------------------------------------
+16
+[0.00754 s] killed by test_isbst (tests.CalculatorTest)
+   - [# 277] ROR source:862: 
+--------------------------------------------------------------------------------
+ 858:     
+ 859:     if node is None:
+ 860:         return True
+ 861:     
+~862:     if (node.val < mini or node.val >= maxi):
+ 863:         return False
+ 864:     
+ 865:     return (isBSTUtil(node.left, mini, node.val - 1) and 
+ 866:     isBSTUtil(node.right, node.val + 1, maxi))
+ 867: 
+--------------------------------------------------------------------------------
+16
+[0.00546 s] killed by test_isbst (tests.CalculatorTest)
+   - [# 278] ROR source:884: 
+--------------------------------------------------------------------------------
+ 880: 
+ 881: def successor(root, node):
+ 882:     succ = None
+ 883:     while root:
+~884:         if node.val > root.val:
+ 885:             succ = root
+ 886:             root = root.left
+ 887:         else:
+ 888:             root = root.right
+ 889:     return succ
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[0.02507 s] killed by test_successor (tests.CalculatorTest)
+   - [# 279] ROR source:884: 
+--------------------------------------------------------------------------------
+ 880: 
+ 881: def successor(root, node):
+ 882:     succ = None
+ 883:     while root:
+~884:         if node.val <= root.val:
+ 885:             succ = root
+ 886:             root = root.left
+ 887:         else:
+ 888:             root = root.right
+ 889:     return succ
+--------------------------------------------------------------------------------
+16
+42
+True
+True
+True
+[0.01008 s] killed by test_successor (tests.CalculatorTest)
+   - [# 280] SIR source:789: 
+--------------------------------------------------------------------------------
+ 785:                 new_level.append(node.left)
+ 786:             if node.right:
+ 787:                 new_level.append(node.right)
+ 788:         level = new_level
+~789:         res.append(current[:])
+ 790:         flag *= (-1)
+ 791:     return res
+ 792: 
+ 793: 
+ 794: 
+--------------------------------------------------------------------------------
+[0.02410 s] killed by test_zigzagorder (tests.CalculatorTest)
+   - [# 281] SIR source:801: 
+--------------------------------------------------------------------------------
+ 797:     if (not nums):
+ 798:         return None
+ 799:     mid = len(nums) // 2
+ 800:     node = TreeNode(nums[mid])
+~801:     node.left = array2bst(nums[:])
+ 802:     node.right = array2bst(nums[mid + 1:])
+ 803:     return node
+ 804: 
+ 805: 
+ 806: 
+--------------------------------------------------------------------------------
+[0.02289 s] killed by test_array2bst (tests.CalculatorTest)
+   - [# 282] SIR source:802: 
+--------------------------------------------------------------------------------
+ 798:         return None
+ 799:     mid = len(nums) // 2
+ 800:     node = TreeNode(nums[mid])
+ 801:     node.left = array2bst(nums[:mid])
+~802:     node.right = array2bst(nums[:])
+ 803:     return node
+ 804: 
+ 805: 
+ 806: 
+ 807: 
+--------------------------------------------------------------------------------
+[0.04174 s] killed by test_array2bst (tests.CalculatorTest)
+[*] Mutation score [30.93732 s]: 91.5%
+   - all: 282
+   - killed: 247 (87.6%)
+   - survived: 23 (8.2%)
+   - incompetent: 12 (4.3%)
+   - timeout: 0 (0.0%)
