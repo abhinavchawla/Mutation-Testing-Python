@@ -1,11 +1,16 @@
 # Software Testing Project
+
 ------------------------------------------
+
 By - Abhinav Chawla (IMT2013002)
    - Udbhav Vats (IMT2013055)
+
 ------------------------------------------
+
 # Aim - Mutation Source Code
 
 A project based on mutation operators applied at the level of a statement within a method or a function. The mutated program needs to be strongly killed by the designed test cases. At least three different mutation operators should be used.
+
 ------------------------------------------
 # Theory-
 
@@ -24,29 +29,39 @@ Step 5: If the original program and mutant program generate the same output, Mut
 # Mutation Score = (Killed Mutants / Total number of Mutants) * 100
 
 ------------------------------------------
+
 # Language used -
 
 Python 3.5.1
+
 ------------------------------------------
+
 # Tools-
 
 MutPy - MutPy is a mutation testing tool for Python 3.x source code. MutPy supports standard unittest module, generates YAML reports and has colorful output. It’s apply mutation on AST level. You could boost your mutation testing process with high order mutations (HOM) and code coverage analysis.
+
 -------------------------------------------
+
 # What is our project about
 
 We have used a code which contains a structure of tree and contains various functions called on tree, as specified in the documentation. Also, we are using the source code which compared various sorting algorithms, specified in documentation. We have written multiple test cases for all the functions in the tests.py file while the source code is the source.py file.
+
 -------------------------------------------
+
 # Contribution-
 
 Udbhav Vats - Source Code and Test cases for Sorting Algorithms. Documentation of the source code.
 Abhinav Chawla - Source Code and Test cases for  Tree based algorithms. Written the README.md and Documentation of source code partial.
+
 -------------------------------------------
 # How to run -
 
 1. First install mutpy using the follwoing command in terminal: $pip3 install mutpy
 2. Then type the following command in terminal: $mut.py --target source --unit-test tests -m
     where source.py is the source file name while tests.py is the file containing the various test cases
+
 --------------------------------------------
+
 # Results-
 
 Mutation score [18.87361 s]: 91.5%
@@ -57,6 +72,7 @@ Mutation score [18.87361 s]: 91.5%
    - timeout: 0 (0.0%)
 
 ------------------------------------------
+
 # Mutation Operators in mutpy
 
 AOD - arithmetic operator deletion
@@ -79,4 +95,5 @@ ROR - relational operator replacement
 SCD - super calling deletion
 SCI - super calling insert
 SIR - slice index remove
+
 --------------------------------------------
