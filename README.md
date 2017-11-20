@@ -1,4 +1,4 @@
-# SOFTWARE TESTING PROJECT
+# Software Testing Project
 ------------------------------------------
 By - Abhinav Chawla(IMT2013002)
    - Udbhav Vats(IMT2013055)
